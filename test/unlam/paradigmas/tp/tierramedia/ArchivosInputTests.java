@@ -25,6 +25,11 @@ public class ArchivosInputTests {
         Assert.assertEquals(usuariosEsperados, usuariosObtenidos);
     }
 
+    @Test(expected = IOException.class)
+    public void testLecturaUsuariosSinRuta () throws IOException    {
+        List<Usuario> usuarios = Archivo.lecturaDeUsuarios("asd");
+    }
+
     @Test
     public void testLecturaAtracciones () throws IOException    {
         List<Atraccion> atraccionesEsperadas = new ArrayList<>();
@@ -33,6 +38,11 @@ public class ArchivosInputTests {
         List<Atraccion> atraccionesObtenidas = Archivo.lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 
         Assert.assertEquals(atraccionesEsperadas, atraccionesObtenidas);
+    }
+
+    @Test(expected = IOException.class)
+    public void testLecturaAtraccionesSinRuta () throws IOException    {
+        List<Atraccion> atracciones = Archivo.lecturaDeAtracciones("asd");
     }
 
 }
