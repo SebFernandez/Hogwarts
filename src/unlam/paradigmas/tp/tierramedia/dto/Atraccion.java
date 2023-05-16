@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Atraccion {
     private String ubicación;
     private int hsDuración;
+    private String tipo;
 
     public Atraccion(String ubicación, int hsDuración) {
         this.ubicación = ubicación;
