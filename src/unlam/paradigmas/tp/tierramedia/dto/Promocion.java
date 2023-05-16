@@ -1,5 +1,9 @@
 package unlam.paradigmas.tp.tierramedia.dto;
 
-public class Promocion {
+import java.util.List;
 
+public class Promocion {
+    private List<Atraccion> listaDeAtracciones;
+    private float descuento;
+    private float precio;
 }
