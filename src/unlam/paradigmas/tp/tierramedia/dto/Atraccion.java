@@ -6,6 +6,7 @@ public class Atraccion {
     private String ubicación;
     private int hsDuración;
     private String tipo;
+    private int costo;
 
     public Atraccion(String ubicación, int hsDuración) {
         this.ubicación = ubicación;
