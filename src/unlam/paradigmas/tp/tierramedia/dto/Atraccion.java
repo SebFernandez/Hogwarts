@@ -3,50 +3,88 @@ package unlam.paradigmas.tp.tierramedia.dto;
 import java.util.Objects;
 
 public class Atraccion {
-    private String ubicación;
-    private int hsDuración;
-    private String tipo;
+    private String nombre;
     private int costo;
+    private float hsDuración;
+    private int cupos;
+    private String tipo;///fijarse si esta bien como atributo
 
-    public Atraccion(String ubicación, int hsDuración) {
-        this.ubicación = ubicación;
-        this.hsDuración = hsDuración;
-    }
+   
+    public Atraccion(String nombre, int costo, float hsDuración, int cupos, String tipo) {
+		super();
+		this.nombre = nombre;
+		this.costo = costo;
+		this.hsDuración = hsDuración;
+		this.cupos = cupos;
+		this.tipo = tipo;
+	}
 
-    public String getUbicación() {
-        return ubicación;
-    }
-
-    public void setUbicación(String ubicación) {
-        this.ubicación = ubicación;
-    }
-
-    public int getHsDuración() {
+	public float getHsDuración() {
         return hsDuración;
     }
+	
 
-    public void setHsDuración(int hsDuración) {
+    public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getCosto() {
+		return costo;
+	}
+
+	public void setCosto(int costo) {
+		this.costo = costo;
+	}
+
+	public int getCupos() {
+		return cupos;
+	}
+
+	public void setCupos(int cupos) {
+		this.cupos = cupos;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setHsDuración(int hsDuración) {
         this.hsDuración = hsDuración;
     }
 
-    @Override
-    public String toString() {
-        return "Atraccion{" +
-                "ubicación='" + ubicación + '\'' +
-                ", hsDuración=" + hsDuración +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Atraccion [nombre=" + nombre + ", costo=" + costo + ", hsDuración=" + hsDuración + ", cupos=" + cupos
+				+ ", tipo=" + tipo + "]";
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Atraccion atraccion = (Atraccion) o;
-        return getHsDuración() == atraccion.getHsDuración() && Objects.equals(getUbicación(), atraccion.getUbicación());
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(costo, cupos, hsDuración, nombre, tipo);
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getUbicación(), getHsDuración());
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Atraccion other = (Atraccion) obj;
+		return costo == other.costo && cupos == other.cupos
+				&& Float.floatToIntBits(hsDuración) == Float.floatToIntBits(other.hsDuración)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(tipo, other.tipo);
+	}
+	
+	
+   
 }

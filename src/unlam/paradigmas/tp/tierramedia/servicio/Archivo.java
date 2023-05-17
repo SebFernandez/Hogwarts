@@ -40,10 +40,12 @@ public class Archivo {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split(",");
 
-                String ubicacion = datos[0].trim();
-                int hsDuracion = Integer.parseInt(datos[1].trim());
-
-                Atraccion atraccion = new Atraccion(ubicacion, hsDuracion);
+                String nombre = datos[0].trim();
+                int costo = Integer.parseInt(datos[1]);
+                float hsDuracion = Float.parseFloat(datos[2]);
+                int cupos = Integer.parseInt(datos[3]);
+                String tipo = datos[4].trim();
+                Atraccion atraccion = new Atraccion(nombre,costo,hsDuracion,cupos,tipo);
                 listaDeAtracciones.add(atraccion);
 
                 System.out.println(atraccion);
