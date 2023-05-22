@@ -1,4 +1,4 @@
-package unlam.paradigmas.tp.tierramedia;
+package unlam.paradigmas.tp.hogwarts;
 
 public class Main {
 
