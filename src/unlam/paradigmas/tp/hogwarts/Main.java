@@ -1,4 +1,4 @@
-package unlam.paradigmas.tp.tierramedia;
+package unlam.paradigmas.tp.hogwarts;
 
 import unlam.paradigmas.tp.tierramedia.dto.Atraccion;
 import unlam.paradigmas.tp.tierramedia.dto.Usuario;
