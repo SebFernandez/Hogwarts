@@ -1,7 +1,7 @@
-package unlam.paradigmas.tp.tierramedia.servicio;
+package unlam.paradigmas.tp.hogwarts.servicio;
 
-import unlam.paradigmas.tp.tierramedia.dto.Atraccion;
-import unlam.paradigmas.tp.tierramedia.dto.Usuario;
+import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
