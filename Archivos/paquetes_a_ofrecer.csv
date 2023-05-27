@@ -1,32 +1,32 @@
 PackAventura;Porcentual;20;3
-Aventura en Motocicleta de Criaturas Magicas de Hagrid;;;
-Harry Potter y el Viaje Prohibido;;;
-Vuelo del Hipogrifo;;;
+Aventura en Motocicleta de Criaturas Magicas de Hagrid;
+Harry Potter y el Viaje Prohibido;
+Vuelo del Hipogrifo;
 PackAventura;Absoluta;70;2
-Expreso de Hogwarts: Estacion de Hogsmeade;;;
-Expreso de Hogwarts: Estacion King's Cross;;;
+Expreso de Hogwarts: Estacion de Hogsmeade;
+Expreso de Hogwarts: Estacion King's Cross;
 PackAventura;AxB;3;3
-Harry Potter y el Viaje Prohibido;;;
-Expreso de Hogwarts: Estacion de Hogsmeade;;;
-Harry Potter y la Escapada de Gringotts;;;
+Harry Potter y el Viaje Prohibido;
+Expreso de Hogwarts: Estacion de Hogsmeade;
+Harry Potter y la Escapada de Gringotts;
 PackExperiencia;Porcentual;15;1
-Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders;;;
+Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders;
 PackExperiencia;Absoluta;50;3
-Haz Hechizos Con Tu Varita Interactiva;;;
-Conoce al Conductor del Hogwarts Express;;;
-Envia una Carta a traves del Owl Post;;;
+Haz Hechizos Con Tu Varita Interactiva;
+Conoce al Conductor del Hogwarts Express;
+Envia una Carta a traves del Owl Post;
 PackExperiencia;AxB;6;8
-Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders;;;
-Haz Hechizos Con Tu Varita Interactiva;;;
-Conoce al Conductor del Hogwarts Express;;;
-Envia una Carta a traves del Owl Post;;;
-Conoce al Chofer del Knight Bus;;;
-Cambia tu dinero Muggle en la casa de cambio de Gringotts;;;
-Echa un vistazo a Dark Magic en el Knockturn Alley;;;
-Obten tu fotografia en movimiento en Shutterbutton's;;;
+Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders;
+Haz Hechizos Con Tu Varita Interactiva;
+Conoce al Conductor del Hogwarts Express;
+Envia una Carta a traves del Owl Post;
+Conoce al Chofer del Knight Bus;
+Cambia tu dinero Muggle en la casa de cambio de Gringotts;
+Echa un vistazo a Dark Magic en el Knockturn Alley;
+Obten tu fotografia en movimiento en Shutterbutton's;
 PackGastronomia;Porcentual;30;2
-Cerveza de Mantequilla;;;
-Las Tres Escobas;;;
+Cerveza de Mantequilla;
+Las Tres Escobas;
 PackGastronomia;Absoluta;50;3
 Fuente de la Fortuna Justa;;;
 Elixir Refrescante de Eternelle;;;
