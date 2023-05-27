@@ -18,7 +18,7 @@ public class Atraccion extends Producto {
 	}
 
 	public boolean hayCupo() {
-		return cupo > 0;
+		return this.cupo > 0;
 	}
 
 	public void descontarCupo() {
@@ -30,23 +30,23 @@ public class Atraccion extends Producto {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public String getTipo() {
-		return tipo;
+		return this.tipo;
 	}
 
 	public double getPrecio() {
-		return precio;
+		return this.precio;
 	}
 
 	public int getCupo() {
-		return cupo;
+		return this.cupo;
 	}
 
 	public double getDuracion() {
-		return duracion;
+		return this.duracion;
 	}
 
 }

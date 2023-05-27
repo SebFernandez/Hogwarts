@@ -41,14 +41,14 @@ public class Promocion extends Producto {
 	}
 
 	private void calcularPrecioOriginal() {
-		precioOriginal = 0;
+		this.precioOriginal = 0;
 		for (Atraccion atraccion : atracciones) {
 			precioOriginal += atraccion.getPrecio();
 		}
 	}
 
 	private void calcularDuracionFinal() {
-		duracion = 0;
+		this.duracion = 0;
 		for (Atraccion atraccion : atracciones) {
 			duracion += atraccion.getDuracion();
 		}
@@ -59,19 +59,19 @@ public class Promocion extends Producto {
 	}
 
 	public List<Atraccion> getAtracciones() {
-		return atracciones;
+		return this.atracciones;
 	}
 
 	public double getDuracion() {
-		return duracion;
+		return this.duracion;
 	}
 
 	public double getPrecioOriginal() {
-		return precioOriginal;
+		return this.precioOriginal;
 	}
 
 	public double getPrecio() {
-		return precioDescuento;
+		return this.precioDescuento;
 	}
 
 }

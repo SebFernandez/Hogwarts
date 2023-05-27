@@ -13,7 +13,7 @@ public class PromocionAxB extends Promocion {
 		double precioFinal = getPrecioOriginal();
 
 		for (int i = valor; i < atracciones.size(); i++) {
-			precioFinal -= atracciones.get(i).getPrecio();
+			precioFinal -= this.atracciones.get(i).getPrecio();
 		}
 
 		setPrecioDescuento(precioFinal);
