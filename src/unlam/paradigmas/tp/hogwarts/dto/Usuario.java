@@ -69,4 +69,8 @@ public class Usuario {
     public int hashCode() {
         return Objects.hash(getNombre(), getGusto(), getPresupuesto(), getHoras());
     }
+    
+    public boolean recursosDisponibles() {
+    	return this.presupuesto == 0 || this.horas == 0;
+    }
 }
