@@ -28,6 +28,6 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("\n\n----------------------------\t¡Vuelvan pronto!\t----------------------------\n\n");
+		System.out.println("\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
 }
