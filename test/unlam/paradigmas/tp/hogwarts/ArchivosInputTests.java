@@ -36,19 +36,4 @@ public class ArchivosInputTests {
 	public void testLecturaUsuariosSinRuta() throws IOException {
 		Queue<Usuario> usuarios = Archivo.lecturaDeUsuarios("RUTA INEXISTENTE");
 	}
-/*
-	@Test
-	public void testLecturaAtracciones() throws IOException {
-		List<Atraccion> atraccionesEsperadas = new ArrayList<>();
-		atraccionesEsperadas.add(new Atraccion("Palomar", 5));
-
-		List<Atraccion> atraccionesObtenidas = Archivo.lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
-
-		Assert.assertEquals(atraccionesEsperadas, atraccionesObtenidas);
-	}
-
-	@Test(expected = IOException.class)
-	public void testLecturaAtraccionesSinRuta() throws IOException {
-		List<Atraccion> atracciones = Archivo.lecturaDeAtracciones("asd");
-	}*/
 }
