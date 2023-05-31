@@ -43,7 +43,7 @@ public class ListaProductos implements Iterable<Producto>{
 		@Override
 		public Producto next() {
 			Producto producto = productos.get(indice);
-			while(indice < productos.size() && esOfertable(productos.get(indice))) {
+			while(indice < productos.size() && !esOfertable(productos.get(indice))) {
 				this.indice++;
 			}
 			return producto;
