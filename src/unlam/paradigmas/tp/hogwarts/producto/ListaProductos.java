@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 public class ListaProductos implements Iterable<Producto> {
 	private final List<Producto> productos;
 	private Usuario usuario;
-
+	
 	public ListaProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
@@ -21,7 +21,7 @@ public class ListaProductos implements Iterable<Producto> {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
+	
 	@Override
 	public Iterator<Producto> iterator() {
 		return new IteratorParaUsuario(usuario);
@@ -35,7 +35,7 @@ public class ListaProductos implements Iterable<Producto> {
 			this.usuario = usuario;
 			this.indice = 0;
 		}
-
+		
 		@Override
 		public boolean hasNext() {
 			return indice < productos.size() && esOfertable(productos.get(indice));
@@ -64,8 +64,9 @@ public class ListaProductos implements Iterable<Producto> {
 					!usuario.estaComprado(producto) &&
 					producto.hayCupo());
 		}
-
+		
 	}
-
+	
+	
 	//TODO completar el iterator
 }
