@@ -1,14 +1,15 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
-import java.util.Iterator;
-import java.util.List;
-
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
-public class ListaProductos implements Iterable<Producto>{
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+public class ListaProductos implements Iterable<Producto> {
 	private final List<Producto> productos;
 	private Usuario usuario;
-	
+
 	public ListaProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
@@ -20,21 +21,21 @@ public class ListaProductos implements Iterable<Producto>{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	@Override
 	public Iterator<Producto> iterator() {
-		return new iteratorParaUsuario(usuario);
+		return new IteratorParaUsuario(usuario);
 	}
 
-	private class iteratorParaUsuario implements Iterator<Producto>{
+	private class IteratorParaUsuario implements Iterator<Producto> {
 		private int indice;
 		private Usuario usuario;
-		
-		public iteratorParaUsuario(Usuario usuario) {
+
+		public IteratorParaUsuario(Usuario usuario) {
 			this.usuario = usuario;
 			this.indice = 0;
 		}
-		
+
 		@Override
 		public boolean hasNext() {
 			return indice < productos.size() && esOfertable(productos.get(indice));
@@ -42,22 +43,29 @@ public class ListaProductos implements Iterable<Producto>{
 
 		@Override
 		public Producto next() {
-			Producto producto = productos.get(indice);
-			while(indice < productos.size() && esOfertable(productos.get(indice))) {
-				this.indice++;
+			if (!hasNext()) {
+				throw new NoSuchElementException();
 			}
+
+			Producto producto = productos.get(indice);
+			indice++;
+
 			return producto;
 		}
-		
+
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
 		private boolean esOfertable(Producto producto) {
 			return (usuario.getPresupuesto() >= producto.getPrecio() &&
-					usuario.getHoras() >= producto.getDuracion()  &&
-					!usuario.estaComprado(producto) && 
+					usuario.getHoras() >= producto.getDuracion() &&
+					!usuario.estaComprado(producto) &&
 					producto.hayCupo());
 		}
-		
+
 	}
-	
-	
+
 	//TODO completar el iterator
 }
