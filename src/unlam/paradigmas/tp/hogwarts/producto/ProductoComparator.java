@@ -12,9 +12,9 @@ public class ProductoComparator implements Comparator<Producto> {
 	@Override
 	public int compare(Producto prod1, Producto prod2) {
 		int cmp;
-		if ((cmp = cmpBol(prod1.esTipo(preferencia), prod2.esTipo(preferencia))) != 0)
-			if ((cmp = cmpClase(prod1, prod2)) != 0)
-				if ((cmp = (int) Double.compare(prod1.getPrecio(), prod2.getPrecio())) != 0)
+		if ((cmp = cmpBol(prod1.esTipo(preferencia), prod2.esTipo(preferencia))) == 0)
+			if ((cmp = cmpClase(prod1, prod2)) == 0)
+				if ((cmp = (int) Double.compare(prod1.getPrecio(), prod2.getPrecio())) == 0)
 					cmp = (int) (prod1.getDuracion() - prod2.getDuracion());
 
 		return cmp;
