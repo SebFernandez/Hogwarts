@@ -14,7 +14,7 @@ public class ProductoComparator implements Comparator<Producto> {
 		int cmp;
 		if ((cmp = cmpBol(prod1.esTipo(preferencia), prod2.esTipo(preferencia))) == 0)
 			if ((cmp = cmpClase(prod1, prod2)) == 0)
-				if ((cmp = (int) Double.compare(prod1.getPrecio(), prod2.getPrecio())) == 0)
+				if ((cmp = Double.compare(prod1.getPrecio(), prod2.getPrecio())) == 0)
 					cmp = (int) (prod1.getDuracion() - prod2.getDuracion());
 
 		return cmp;
