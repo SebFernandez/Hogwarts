@@ -14,6 +14,8 @@ public class ListaProductos implements Iterable<Producto> {
 		this.productos = productos;
 	}
 
+	//	TODO: Tiene que ordenar promociones y atracciones por separado (?)
+	//	TODO: Ver si podemos tener productos y atracciones por separado
 	public void ordenar(String preferenciaUsuario) {
 		productos.sort(new ProductoComparator(preferenciaUsuario));
 	}
@@ -48,7 +50,9 @@ public class ListaProductos implements Iterable<Producto> {
 			}
 
 			Producto producto = productos.get(indice);
-			indice++;
+
+			while(indice < productos.size() && !esOfertable(productos.get(indice)))
+				indice++;
 
 			return producto;
 		}
@@ -66,6 +70,4 @@ public class ListaProductos implements Iterable<Producto> {
 		}
 
 	}
-
-	//TODO completar el iterator
 }

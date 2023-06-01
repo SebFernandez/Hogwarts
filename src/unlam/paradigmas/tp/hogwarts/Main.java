@@ -29,4 +29,11 @@ public class Main {
 
 		System.out.println("\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
+
+	/*
+	*  TODO: La resolución debe incluir pruebas unitarias de:
+	*  1. las funcionalidades de paquete
+	*  2. totalizador de itinerarios
+	*  3. el ofertador de atracciones/paquetes.
+	 */
 }

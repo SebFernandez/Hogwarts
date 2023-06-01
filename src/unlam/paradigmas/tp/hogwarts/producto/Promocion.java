@@ -6,7 +6,7 @@ public class Promocion extends Producto {
 	protected List<Atraccion> atracciones;
 	private double duracion;
 	private double precioOriginal;
-	private double precioDescuento;
+	private double precioFinalConDescuento;
 
 	public Promocion() {
 	}
@@ -32,9 +32,9 @@ public class Promocion extends Producto {
 		}
 	}
 
-	public boolean esTipo(String tipo) {
+	public boolean esProductoPreferidoPorElUsuario(String tipo) {
 		for (Atraccion atraccion : atracciones) {
-			if (atraccion.esTipo(tipo))
+			if (atraccion.esProductoPreferidoPorElUsuario(tipo))
 				return true;
 		}
 		return false;
@@ -54,8 +54,8 @@ public class Promocion extends Producto {
 		}
 	}
 
-	protected void setPrecioDescuento(double precioDescuento) {
-		this.precioDescuento = precioDescuento;
+	protected void setPrecioFinalConDescuento(double precioFinalConDescuento) {
+		this.precioFinalConDescuento = precioFinalConDescuento;
 	}
 
 	public List<Atraccion> getAtracciones() {
@@ -71,7 +71,7 @@ public class Promocion extends Producto {
 	}
 
 	public double getPrecio() {
-		return this.precioDescuento;
+		return this.precioFinalConDescuento;
 	}
 
 }

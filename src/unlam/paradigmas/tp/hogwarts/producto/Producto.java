@@ -6,7 +6,7 @@ public abstract class Producto {
 
 	public abstract void descontarCupo();
 
-	public abstract boolean esTipo(String tipo);
+	public abstract boolean esProductoPreferidoPorElUsuario(String preferencia);
 
 	public abstract double getPrecio();
 

@@ -25,7 +25,7 @@ public class Atraccion extends Producto {
 		this.cupo--;
 	}
 
-	public boolean esTipo(String tipo) {
+	public boolean esProductoPreferidoPorElUsuario(String tipo) {
 		return this.tipo.equals(tipo);
 	}
 

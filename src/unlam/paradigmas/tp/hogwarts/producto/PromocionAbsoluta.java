@@ -10,7 +10,7 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	private void aplicarDescuento(int valor) {
-		setPrecioDescuento(getPrecioOriginal() - valor);
+		setPrecioFinalConDescuento(getPrecioOriginal() - valor);
 	}
 
 }
