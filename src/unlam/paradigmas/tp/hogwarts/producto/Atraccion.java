@@ -62,14 +62,20 @@ public class Atraccion extends Producto {
 			   duracion == otra.getDuracion() && precio == otra.getPrecio();
 	}
 
+	/*
+	Este metodo comprueba si un producto contiene a otro producto,
+	en este caso verifica si una atraccion contiene una promocion o otra atraccion, 
+	en caso de que la promocion contenga dentro de sus atracciones a la atraccion this("el objeto llamador"),
+	devolvera verdadero, si 'otro' es una atraccion simplemente la compara con la actual(this).
+	*/
 	@Override
-	public boolean contiene(Producto otro) { ///
+	public boolean contiene(Producto otro) { 
 		if(otro instanceof Promocion) {
 			Promocion otraProm = (Promocion) otro;
 			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion?
 		}
 		else
-			return this.equals((Atraccion)otro); // TODO casteo necesario?
+			return this.equals(otro); 
 	}
 	
 

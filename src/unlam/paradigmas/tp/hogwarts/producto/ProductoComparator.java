@@ -15,7 +15,7 @@ public class ProductoComparator implements Comparator<Producto> {
 		if ((cmp = cmpBol(prod1.esProductoPreferidoPorElUsuario(preferencia), prod2.esProductoPreferidoPorElUsuario(preferencia))) == 0)
 			if ((cmp = cmpClase(prod1, prod2)) == 0)
 				if ((cmp = Double.compare(prod1.getPrecio(), prod2.getPrecio())) == 0)
-					cmp = (int) (prod1.getDuracion() - prod2.getDuracion());
+					cmp = (int) (prod1.getDuracion() - prod2.getDuracion()); ///TODO el redondeo hace que no funcione bien
 
 		return cmp;
 	}
