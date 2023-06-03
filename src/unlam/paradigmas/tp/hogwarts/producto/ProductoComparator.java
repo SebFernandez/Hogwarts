@@ -9,6 +9,7 @@ public class ProductoComparator implements Comparator<Producto> {
 		this.preferencia = preferencia;
 	}
 
+	//  TODO: extraer mega if a otro método.
 	@Override
 	public int compare(Producto prod1, Producto prod2) {
 		int cmp;
