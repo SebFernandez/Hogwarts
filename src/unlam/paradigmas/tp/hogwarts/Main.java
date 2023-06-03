@@ -1,15 +1,16 @@
 package unlam.paradigmas.tp.hogwarts;
 
-import unlam.paradigmas.tp.hogwarts.dto.Usuario;
-import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
-import unlam.paradigmas.tp.hogwarts.producto.Promocion;
+import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
+import unlam.paradigmas.tp.hogwarts.dto.Parque;
+import unlam.paradigmas.tp.hogwarts.dto.Usuario;
+import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.producto.Promocion;
 
 public class Main {
 	private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
@@ -18,7 +19,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("\n\n----------------------------\t\tHogwarts les desea una feliz bienvenida\t\t----------------------------");
-
+		
 		try {
 			Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
 			Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
@@ -26,7 +27,9 @@ public class Main {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-
+		
+		
+		
 		System.out.println("\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
 

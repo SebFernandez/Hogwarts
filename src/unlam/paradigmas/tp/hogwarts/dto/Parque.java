@@ -10,7 +10,6 @@ public class Parque {
 	}
 	
 	public void ofertarParaUsuario(Usuario user) {
-		
-		
+		///TODO completar metodo;
 	}
 }

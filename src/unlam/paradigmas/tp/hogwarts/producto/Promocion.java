@@ -74,4 +74,10 @@ public class Promocion extends Producto {
 		return this.precioFinalConDescuento;
 	}
 
+	@Override
+	public boolean contiene(Producto otro) {
+		// TODO completar metodo
+		return false;
+	}
+
 }

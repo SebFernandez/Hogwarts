@@ -49,4 +49,28 @@ public class Atraccion extends Producto {
 		return this.duracion;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+		Atraccion otra = (Atraccion) obj;
+		return nombre.equals(otra.getNombre()) && tipo.equals(otra.getTipo()) &&
+			   duracion == otra.getDuracion() && precio == otra.getPrecio();
+	}
+
+	@Override
+	public boolean contiene(Producto otro) { ///
+		if(otro instanceof Promocion) {
+			Promocion otraProm = (Promocion) otro;
+			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion?
+		}
+		else
+			return this.equals((Atraccion)otro); // TODO casteo necesario?
+	}
+	
+
 }

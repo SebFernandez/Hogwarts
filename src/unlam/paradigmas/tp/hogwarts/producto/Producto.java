@@ -11,4 +11,6 @@ public abstract class Producto {
 	public abstract double getPrecio();
 
 	public abstract double getDuracion();
+	
+	public abstract boolean contiene(Producto otro);
 }
