@@ -51,7 +51,7 @@ public class ListaProductos implements Iterable<Producto> {
 
 			Producto producto = productos.get(indice);
 
-			while(indice < productos.size() && !esOfertable(productos.get(indice)))
+			while (indice < productos.size() && !esOfertable(productos.get(indice)))
 				indice++;
 
 			return producto;
