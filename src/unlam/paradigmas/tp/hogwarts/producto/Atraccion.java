@@ -52,14 +52,19 @@ public class Atraccion extends Producto {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
-            return true;
-        }
-        if (obj == null || this.getClass() != obj.getClass()) {
-            return false;
-        }
+			return true;
+		}
+
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
+
 		Atraccion otra = (Atraccion) obj;
-		return nombre.equals(otra.getNombre()) && tipo.equals(otra.getTipo()) &&
-			   duracion == otra.getDuracion() && precio == otra.getPrecio();
+
+		return nombre.equals(otra.getNombre()) &&
+				tipo.equals(otra.getTipo()) &&
+				duracion == otra.getDuracion() &&   //  TODO: Comparar floats o double puede tener problemas de precisión. Podemos usar BigDecimal que es la solución de Java al problema mencionado.
+				precio == otra.getPrecio();
 	}
 
 	/*
@@ -69,14 +74,12 @@ public class Atraccion extends Producto {
 	devolvera verdadero, si 'otro' es una atraccion simplemente la compara con la actual(this).
 	*/
 	@Override
-	public boolean contiene(Producto otro) { 
-		if(otro instanceof Promocion) {
+	public boolean contiene(Producto otro) {
+		if (otro instanceof Promocion) {
 			Promocion otraProm = (Promocion) otro;
-			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion?
-		}
-		else
-			return this.equals(otro); 
+			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion? RTA: Sí.
+		} else
+			return this.equals(otro);
 	}
-	
 
 }

@@ -3,13 +3,10 @@ package unlam.paradigmas.tp.hogwarts;
 import org.junit.Assert;
 import org.junit.Test;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
-import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
 import unlam.paradigmas.tp.hogwarts.servicio.Archivo;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class ArchivosInputTests {

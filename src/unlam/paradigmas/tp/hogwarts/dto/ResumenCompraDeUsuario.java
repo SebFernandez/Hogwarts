@@ -5,7 +5,7 @@ import java.util.Set;
 import unlam.paradigmas.tp.hogwarts.producto.Producto;
 
 public class ResumenCompraDeUsuario {
-	private Set<Producto> compras; ///TODO deberia ser otra collecion?
+	private Set<Producto> compras; ///TODO deberia ser otra collecion? RTA: Podemos usar Set, los productos no se van a repetir.
 	
 	public boolean estaComprado(Producto otro) {
 		for (Producto producto : compras) {

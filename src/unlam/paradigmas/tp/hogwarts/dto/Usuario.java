@@ -50,7 +50,7 @@ public class Usuario {
         this.horas = horas;
     }
     
-    //TODO esto es correcto?
+    //TODO esto es correcto? RTA: No se me ocurre qué podría representar la implementación del método contiene.
     public boolean estaComprado(Producto producto) {
     	return compras.estaComprado(producto);
     }
