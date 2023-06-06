@@ -74,4 +74,15 @@ public class Promocion extends Producto {
 		return this.precioDescuento;
 	}
 
+	public void mostrarListaAtracciones() {
+		System.out.print("[");
+        for (int i = 0; i < atracciones.size(); i++) {
+            System.out.print(atracciones.get(i).getNombre());
+            if (i < atracciones.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+	}
+
 }
