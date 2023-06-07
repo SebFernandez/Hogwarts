@@ -62,6 +62,7 @@ public class ListaProductos implements Iterable<Producto> {
 			throw new UnsupportedOperationException();
 		}
 
+		//  TODO: Llevar esOfetable a Producto.
 		private boolean esOfertable(Producto producto) {
 			return (usuario.getPresupuesto() >= producto.getPrecio() &&
 					usuario.getHoras() >= producto.getDuracion() &&
