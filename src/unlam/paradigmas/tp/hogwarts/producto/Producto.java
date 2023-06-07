@@ -1,6 +1,8 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
 public abstract class Producto {
+	
+	protected boolean esPromocion;
 
 	public abstract boolean hayCupo();
 

@@ -16,6 +16,7 @@ public class Promocion extends Producto {
 		this.atracciones = atracciones;
 		calcularDuracionFinal();
 		calcularPrecioOriginal();
+		this.esPromocion = true;
 	}
 
 	public boolean hayCupo() {
