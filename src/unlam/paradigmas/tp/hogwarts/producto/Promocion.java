@@ -74,6 +74,22 @@ public class Promocion extends Producto {
 	public double getPrecio() {
 		return this.precioFinalConDescuento;
 	}
+	
+	private String getNombresDeAtracciones() {
+		String nombresDeAtraccione = "";
+		for(Atraccion atraccionesIncluidas: atracciones) {
+			nombresDeAtraccione += atraccionesIncluidas.getNombre() + ", ";
+		}
+		return nombresDeAtraccione;
+	}
+	@Override
+	public String toString() {
+		return "Promocion " + "\n"
+				+ "Atracciones incluidas:" + getNombresDeAtracciones() + "\n"
+				+ "Duracion=" + duracion + "\n"
+				+ "Precio original:" + precioOriginal + "\n"
+				+ "Precio final con descuento:" + precioFinalConDescuento;
+	}
 
 	@Override
 	public boolean contiene(Producto otro) {

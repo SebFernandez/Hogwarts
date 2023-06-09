@@ -5,7 +5,9 @@ import unlam.paradigmas.tp.hogwarts.producto.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Archivo {
@@ -80,6 +82,34 @@ public class Archivo {
 			}
 
 			return listaDePromociones;
+		}
+	}
+	public void generarArchivoDeCompras(String path,String nombreUsuario,Set<Producto> listaDeCompras) {
+		FileWriter fWriter = null;
+		PrintWriter pWriter = null;
+		
+		try {
+			fWriter = new FileWriter(path + nombreUsuario + ".out" );
+			pWriter = new PrintWriter(fWriter);
+			pWriter.println("\t\t"+nombreUsuario);
+			if(listaDeCompras.isEmpty()) {
+				pWriter.print("no compro nada");
+			}else {
+				for(Producto producto: listaDeCompras) {
+					pWriter.println(producto);
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(fWriter != null) {
+				try {
+					fWriter.close();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
 		}
 	}
 }

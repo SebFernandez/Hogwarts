@@ -49,6 +49,17 @@ public class Atraccion extends Producto {
 	public double getDuracion() {
 		return this.duracion;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Atraccion " + "\n"
+				+ "Nombre:" + nombre + "\n"
+				+ "Tipo=" + tipo + "\n"
+				+ "Cupo=" + cupo + "\n"
+				+ "Precio=" + precio + "\n"
+				+ "Duracion=" + duracion;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

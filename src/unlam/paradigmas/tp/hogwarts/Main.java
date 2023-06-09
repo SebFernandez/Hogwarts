@@ -16,7 +16,7 @@ public class Main {
 	private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
 	private static final String RUTA_ARCHIVO_ATRACCIONES = "Archivos/Atracciones.csv";
 	private static final String RUTA_ARCHIVO_PROMOCIONES = "Archivos/paquetes_a_ofrecer.csv";
-
+	private static final String RUTA_ARCHIVOS_SALIDA = "Archivos/Salida/";
 	public static void main(String[] args) throws IOException {
 		System.out.println("\n\n----------------------------\t\tHogwarts les desea una feliz bienvenida\t\t----------------------------");
 
