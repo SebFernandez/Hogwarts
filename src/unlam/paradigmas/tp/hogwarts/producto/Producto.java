@@ -3,6 +3,8 @@ package unlam.paradigmas.tp.hogwarts.producto;
 public abstract class Producto {
 	
 	protected boolean esPromocion;
+	
+	public boolean getEsPromocion() { return this.esPromocion; }
 
 	public abstract boolean hayCupo();
 
