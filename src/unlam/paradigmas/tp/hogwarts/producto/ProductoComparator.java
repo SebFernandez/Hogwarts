@@ -9,13 +9,14 @@ public class ProductoComparator implements Comparator<Producto> {
 		this.preferencia = preferencia;
 	}
 
+	//  TODO: extraer mega if a otro método.
 	@Override
 	public int compare(Producto prod1, Producto prod2) {
 		int cmp;
-		if ((cmp = cmpBol(prod1.esTipo(preferencia), prod2.esTipo(preferencia))) != 0)
-			if ((cmp = cmpClase(prod1, prod2)) != 0)
-				if ((cmp = (int) Double.compare(prod1.getPrecio(), prod2.getPrecio())) != 0)
-					cmp = (int) (prod1.getDuracion() - prod2.getDuracion());
+		if ((cmp = cmpBol(prod1.esProductoPreferidoPorElUsuario(preferencia), prod2.esProductoPreferidoPorElUsuario(preferencia))) == 0)
+			if ((cmp = cmpClase(prod1, prod2)) == 0)
+				if ((cmp = Double.compare(prod1.getPrecio(), prod2.getPrecio())) == 0)
+					cmp = Double.compare(prod1.getDuracion(), prod2.getDuracion()); ///TODO el redondeo hace que no funcione bien
 
 		return cmp;
 	}
@@ -30,6 +31,7 @@ public class ProductoComparator implements Comparator<Producto> {
 		return -1;
 	}
 
+	//	TODO: .getClass() e instanceof no le gustan al profesor
 	private int cmpClase(Producto prod1, Producto prod2) {
 		if (prod1.getClass() == prod2.getClass())
 			return 0;

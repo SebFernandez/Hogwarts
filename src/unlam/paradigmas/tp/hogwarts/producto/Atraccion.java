@@ -15,6 +15,7 @@ public class Atraccion extends Producto {
 		this.precio = precio;
 		this.cupo = cupo;
 		this.duracion = tiempo;
+		this.esPromocion=false;
 	}
 
 	public boolean hayCupo() {
@@ -25,7 +26,7 @@ public class Atraccion extends Producto {
 		this.cupo--;
 	}
 
-	public boolean esTipo(String tipo) {
+	public boolean esProductoPreferidoPorElUsuario(String tipo) {
 		return this.tipo.equals(tipo);
 	}
 
@@ -47,6 +48,39 @@ public class Atraccion extends Producto {
 
 	public double getDuracion() {
 		return this.duracion;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
+
+		Atraccion otra = (Atraccion) obj;
+
+		return nombre.equals(otra.getNombre()) &&
+				tipo.equals(otra.getTipo()) &&
+				duracion == otra.getDuracion() &&   //  TODO: Comparar floats o double puede tener problemas de precisión. Podemos usar BigDecimal que es la solución de Java al problema mencionado.
+				precio == otra.getPrecio();
+	}
+
+	/*
+	Este metodo comprueba si un producto contiene a otro producto,
+	en este caso verifica si una atraccion contiene una promocion o otra atraccion, 
+	en caso de que la promocion contenga dentro de sus atracciones a la atraccion this("el objeto llamador"),
+	devolvera verdadero, si 'otro' es una atraccion simplemente la compara con la actual(this).
+	*/
+	@Override
+	public boolean contiene(Producto otro) {
+		if (otro instanceof Promocion) {
+			Promocion otraProm = (Promocion) otro;
+			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion? RTA: Sí.
+		} else
+			return this.equals(otro);
 	}
 
 }
