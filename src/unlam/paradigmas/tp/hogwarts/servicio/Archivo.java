@@ -1,78 +1,85 @@
 package unlam.paradigmas.tp.hogwarts.servicio;
 
-import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
-import unlam.paradigmas.tp.hogwarts.dto.Promocion;
+import unlam.paradigmas.tp.hogwarts.producto.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Archivo {
 
-    public static List<Usuario> lecturaDeUsuarios(String path) throws IOException {
-        List<Usuario> listaDeUsuarios = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] datos = line.split(",");
+	public static Queue<Usuario> lecturaDeUsuarios(String path) throws IOException {
+		Queue<Usuario> colaDeUsuarios = new LinkedList<>();
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				String[] datos = line.split(",");
 
-                String nombre = datos[0].trim();
-                String gusto = datos[1].trim();
-                float presupuesto = Float.parseFloat(datos[2].trim());
-                int horas = Integer.parseInt(datos[3].trim());
+				String nombre = datos[0];
+				String gusto = datos[1];
+				float presupuesto = Float.parseFloat(datos[2]);
+				int horas = Integer.parseInt(datos[3]);
 
-                Usuario usuario = new Usuario(nombre, gusto, presupuesto, horas);
-                listaDeUsuarios.add(usuario);
+				Usuario usuario = new Usuario(nombre, gusto, presupuesto, horas);
+				colaDeUsuarios.add(usuario);
+			}
 
-                System.out.println(usuario);
-            }
+			return colaDeUsuarios;
+		}
+	}
 
-            return listaDeUsuarios;
-        }
-    }
+	public static Map<String, Atraccion> lecturaDeAtracciones(String path) throws IOException {
+		Map<String, Atraccion> atracciones = new HashMap<>();
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				String[] datos = line.split(",");
 
-    public static List<Atraccion> lecturaDeAtracciones(String path) throws IOException {
-        List<Atraccion> listaDeAtracciones = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] datos = line.split(",");
+				String nombre = datos[0];
+				int precio = Integer.parseInt(datos[1]);
+				int duracion = Integer.parseInt(datos[2]);
+				int cupo = Integer.parseInt(datos[3]);
+				String tipo = datos[4];
 
-                String ubicacion = datos[0].trim();
-                int hsDuracion = Integer.parseInt(datos[1].trim());
+				Atraccion atraccion = new Atraccion(nombre, tipo, cupo, precio, duracion);
+				atracciones.put(atraccion.getNombre(), atraccion);
+			}
 
-                Atraccion atraccion = new Atraccion(ubicacion, hsDuracion);
-                listaDeAtracciones.add(atraccion);
+			return atracciones;
+		}
+	}
 
-                System.out.println(atraccion);
-            }
+	public static List<Promocion> lecturaDePromociones(String path, Map<String, Atraccion> atracciones) throws IOException {
+		List<Promocion> listaDePromociones = new ArrayList<>();
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+			String line;
 
-        }
+			while ((line = bufferedReader.readLine()) != null) {
+				String[] datos = line.split(",");
+				int lineasLeidas = 0;
+				int descuento = Integer.parseInt(datos[2]);
+				List<Atraccion> listaDeAtracciones = new ArrayList<>();
 
-        return listaDeAtracciones;
-    }
+				while (lineasLeidas < Integer.parseInt(datos[3]) && (line = bufferedReader.readLine()) != null) {
+					listaDeAtracciones.add(atracciones.get(line));
+					lineasLeidas++;
+				}
 
-    public static List<Promocion> lecturaDePaquetes(String path) throws IOException {
-        List<Promocion> listaDePromociones = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] datos = line.split(",");
+				if (datos[1].equals("Porcentual")) {
+					var promo = new PromocionPorcentual(listaDeAtracciones, descuento);
+					listaDePromociones.add(promo);
+				} else if (datos[1].equals("Absoluta")) {
+					var promo = new PromocionAbsoluta(listaDeAtracciones, descuento);
+					listaDePromociones.add(promo);
+				} else if (datos[1].equals("AxB")) {
+					var promo = new PromocionAxB(listaDeAtracciones, descuento);
+					listaDePromociones.add(promo);
+				}
+			}
 
-//                String ubicacion = datos[0].trim();
-//                int hsDuracion = Integer.parseInt(datos[1].trim());
-
-                Promocion promo = new Promocion();
-                listaDePromociones.add(promo);
-
-                System.out.println(promo);
-            }
-
-        }
-
-        return listaDePromociones;
-    }
+			return listaDePromociones;
+		}
+	}
 }
