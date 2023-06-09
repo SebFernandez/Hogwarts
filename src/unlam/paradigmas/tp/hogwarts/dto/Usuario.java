@@ -1,13 +1,16 @@
-package unlam.paradigmas.tp.tierramedia.dto;
+package unlam.paradigmas.tp.hogwarts.dto;
 
 import java.util.Objects;
+
+import unlam.paradigmas.tp.hogwarts.producto.Producto;
 
 public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
     private int horas;
-
+    private ResumenCompraDeUsuario compras;
+    
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
         this.gusto = gusto;
@@ -45,6 +48,11 @@ public class Usuario {
 
     public void setHoras(int horas) {
         this.horas = horas;
+    }
+    
+    //TODO esto es correcto? RTA: No se me ocurre qué podría representar la implementación del método contiene.
+    public boolean estaComprado(Producto producto) {
+    	return compras.estaComprado(producto);
     }
 
     @Override
