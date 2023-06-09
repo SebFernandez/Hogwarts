@@ -1,5 +1,7 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
+import unlam.paradigmas.tp.hogwarts.dto.Usuario;
+
 public class Atraccion extends Producto {
 
 	private final String nombre;
@@ -15,7 +17,7 @@ public class Atraccion extends Producto {
 		this.precio = precio;
 		this.cupo = cupo;
 		this.duracion = tiempo;
-		this.esPromocion=false;
+//		this.esPromocion=false;
 	}
 
 	public boolean hayCupo() {
@@ -75,12 +77,18 @@ public class Atraccion extends Producto {
 	devolvera verdadero, si 'otro' es una atraccion simplemente la compara con la actual(this).
 	*/
 	@Override
-	public boolean contiene(Producto otro) {
-		if (otro instanceof Promocion) {
+	public boolean contiene(Producto otro) { //TODO testear metodo 
+		if (otro instanceof Promocion) {	
 			Promocion otraProm = (Promocion) otro;
-			return otraProm.getAtracciones().contains(this); //TODO esto usa el equals de Atraccion? RTA: Sí.
-		} else
+			return otraProm.getAtracciones().contains(this);
+		} 
+		else /// si otro es atraccion entonces: 
 			return this.equals(otro);
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion + "\n";
+	}
 }

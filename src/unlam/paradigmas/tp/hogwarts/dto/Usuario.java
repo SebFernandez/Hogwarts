@@ -9,13 +9,14 @@ public class Usuario {
     private String gusto;
     private float presupuesto;
     private int horas;
-    private ResumenCompraDeUsuario compras;
+    private ResumenCompraDeUsuario compras; 
     
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
         this.gusto = gusto;
         this.presupuesto = presupuesto;
         this.horas = horas;
+        compras = new ResumenCompraDeUsuario();
     }
 
     public String getNombre() {
@@ -53,6 +54,14 @@ public class Usuario {
     //TODO esto es correcto? RTA: No se me ocurre qué podría representar la implementación del método contiene.
     public boolean estaComprado(Producto producto) {
     	return compras.estaComprado(producto);
+    }
+    
+    public boolean comprar(Producto prod) {
+    	if(compras.comprar(prod)) {
+    		this.presupuesto -= prod.getPrecio();
+    		return true;
+    	}
+    	return false; //TODO revisar
     }
 
     @Override

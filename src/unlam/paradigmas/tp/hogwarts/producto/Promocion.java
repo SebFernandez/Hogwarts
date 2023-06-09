@@ -2,6 +2,8 @@ package unlam.paradigmas.tp.hogwarts.producto;
 
 import java.util.List;
 
+import unlam.paradigmas.tp.hogwarts.dto.Usuario;
+
 public class Promocion extends Producto {
 	protected List<Atraccion> atracciones;
 	private double duracion;
@@ -16,7 +18,8 @@ public class Promocion extends Producto {
 		this.atracciones = atracciones;
 		calcularDuracionFinal();
 		calcularPrecioOriginal();
-		this.esPromocion = true;
+		precioFinalConDescuento = precioOriginal; // TODO corregir
+//		this.esPromocion = true;
 	}
 
 	public boolean hayCupo() {
@@ -76,9 +79,26 @@ public class Promocion extends Producto {
 	}
 
 	@Override
-	public boolean contiene(Producto otro) {
-		// TODO completar metodo
-		return false;
+	public boolean contiene(Producto otro) { //TODO testear metodo
+		if(otro instanceof Promocion) {
+			Promocion otraPromocion = (Promocion)otro;
+			
+			for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis atracciones
+				if(otraPromocion.contiene(atraccion))
+					return true;
+			}
+			return false;
+		}
+		// otro es Atraccion entonces pregunto si esta en mi lista de atracciones
+		return atracciones.contains(otro);
 	}
 
+	@Override
+	public String toString() { // TODO revisar
+		String out = "Promocion, PrecioOriginal: " + precioOriginal + " Duracion total: " + duracion + "\nAtracciones:\n";
+		for (Atraccion atraccion : atracciones) {
+			out = out + atraccion.toString() ;
+		}
+		return out;
+	}
 }

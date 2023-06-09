@@ -1,13 +1,18 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import unlam.paradigmas.tp.hogwarts.producto.Producto;
 
 public class ResumenCompraDeUsuario {
-	private Set<Producto> compras; ///TODO deberia ser otra collecion? RTA: Podemos usar Set, los productos no se van a repetir.
+	private Set<Producto> compras;
 	
-	public boolean estaComprado(Producto otro) {
+	public ResumenCompraDeUsuario() {
+		compras = new HashSet<>();
+	}
+	
+	public boolean estaComprado(Producto otro) { // TODO testear metodo
 		for (Producto producto : compras) {
 			if(producto.contiene(otro))
 				return true;
@@ -15,12 +20,10 @@ public class ResumenCompraDeUsuario {
 		return false;
 	}
 	
-	public boolean comprar(Producto producto) {
-		if(estaComprado(producto)) {
-			return false;
-		}
-		return compras.add(producto);
+	public boolean comprar(Producto producto) { // TODO testear
+		return ( !estaComprado(producto) )? compras.add(producto) : false;
 	}
+	
 	
 	//TODO hacer el metodo generarResumen
 }
