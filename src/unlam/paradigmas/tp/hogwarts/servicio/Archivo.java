@@ -2,6 +2,7 @@ package unlam.paradigmas.tp.hogwarts.servicio;
 
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 import unlam.paradigmas.tp.hogwarts.producto.*;
+import unlam.paradigmas.tp.hogwarts.dto.Promocion;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -82,4 +83,24 @@ public class Archivo {
 			return listaDePromociones;
 		}
 	}
+    public static List<Promocion> lecturaDePaquetes(String path) throws IOException {
+        List<Promocion> listaDePromociones = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] datos = line.split(",");
+
+//                String ubicacion = datos[0].trim();
+//                int hsDuracion = Integer.parseInt(datos[1].trim());
+
+                Promocion promo = new Promocion();
+                listaDePromociones.add(promo);
+
+                System.out.println(promo);
+            }
+
+        }
+
+        return listaDePromociones;
+    }
 }
