@@ -43,7 +43,7 @@ public class Archivo {
 				int cupo = Integer.parseInt(datos[3]);
 				String tipo = datos[4];
 
-				Atraccion atraccion = new Atraccion(nombre, tipo, cupo, precio, duracion);
+				Atraccion atraccion = new Atraccion(nombre, tipo, precio, cupo, duracion);
 				atracciones.put(atraccion.getNombre(), atraccion);
 			}
 

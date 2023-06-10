@@ -12,7 +12,7 @@ public class PromocionAxB extends Promocion {
 	private void aplicarDescuento(int valor) {
 		double precioFinal = getPrecioOriginal();
 
-		for (int i = valor; i < atracciones.size(); i++) {
+		for (int i = valor-1; i < atracciones.size(); i++) {
 			precioFinal -= this.atracciones.get(i).getPrecio();
 		}
 
