@@ -66,18 +66,11 @@ public class Atraccion extends Producto {
 
 		return nombre.equals(otra.getNombre()) &&
 				tipo.equals(otra.getTipo()) &&
-				duracion == otra.getDuracion() &&   //  TODO: Comparar floats o double puede tener problemas de precisión. Podemos usar BigDecimal que es la solución de Java al problema mencionado.
-				precio == otra.getPrecio();
+				Double.compare(duracion, otra.getDuracion()) ==0 && // TODO: revisar si es correcta esta comparacion
+				Double.compare(precio,otra.getPrecio()) == 0;
 	}
-
-	/*
-	Este metodo comprueba si un producto contiene a otro producto,
-	en este caso verifica si una atraccion contiene una promocion o otra atraccion, 
-	en caso de que la promocion contenga dentro de sus atracciones a la atraccion this("el objeto llamador"),
-	devolvera verdadero, si 'otro' es una atraccion simplemente la compara con la actual(this).
-	*/
 	@Override
-	public boolean contiene(Producto otro) { //TODO testear metodo 
+	public boolean contiene(Producto otro) {
 		if (otro instanceof Promocion) {	
 			Promocion otraProm = (Promocion) otro;
 			return otraProm.getAtracciones().contains(this);
@@ -89,6 +82,6 @@ public class Atraccion extends Producto {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion + "\n";
+		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion;
 	}
 }

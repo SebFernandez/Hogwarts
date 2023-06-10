@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import unlam.paradigmas.tp.hogwarts.dto.*;
 
-public class ProductoIteratorTest {	//TODO implementar tests
+public class ProductoIteratorTest {
 
 	@Test
 	public void iteratorTestUsuarioSinComprar() {
@@ -78,7 +78,7 @@ public class ProductoIteratorTest {	//TODO implementar tests
         while (productosIt.hasNext()) {
         	producto = productosIt.next();
 			usuario.comprar(producto);
-    		Assert.assertTrue (producto.equals(colaEsperados.poll()));
+            Assert.assertEquals(producto, colaEsperados.poll());
 		}
 
         Assert.assertTrue (colaEsperados.isEmpty());
