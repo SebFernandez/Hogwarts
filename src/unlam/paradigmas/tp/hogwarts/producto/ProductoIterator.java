@@ -25,6 +25,7 @@ public class ProductoIterator implements Iterator<Producto> {  // TODO validad c
 
 	@Override
 	public boolean hasNext() {
+		//  TODO: Este while no debería estar acá.
 		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
 			indice++;
 
