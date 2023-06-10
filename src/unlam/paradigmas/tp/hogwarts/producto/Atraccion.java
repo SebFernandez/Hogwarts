@@ -79,6 +79,11 @@ public class Atraccion extends Producto {
 	}
 
 	@Override
+	public boolean comprar() { // TODO: completar
+		return false;
+	}
+
+	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion;

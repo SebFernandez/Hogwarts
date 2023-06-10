@@ -94,6 +94,11 @@ public class Promocion extends Producto {
 	}
 
 	@Override
+	public boolean comprar() { // TODO: completar
+		return false;
+	}
+
+	@Override
 	public String toString() { // TODO revisar
 		String out = "Promocion, PrecioOriginal: " + precioOriginal + " Duracion total: " + duracion + "\nAtracciones:\n";
 		for (Atraccion atraccion : atracciones) {

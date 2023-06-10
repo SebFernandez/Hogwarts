@@ -10,7 +10,7 @@ public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
-    private int horas;
+    private int horas; // TODO: esto deberia ser double?
     private Set<Producto> compras;
     
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
@@ -55,24 +55,30 @@ public class Usuario {
     
     //  TODO: chequear que no tire un null.
     public boolean estaComprado(Producto otro) {
-        Producto producto = null;
-        if(compras.iterator().hasNext())
-            producto = compras.iterator().next();
+        for (Producto producto: compras) {
+            if(producto.contiene(otro))
+                return true;
+        }
+        return false;
 
-
-        //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
-        while(compras.iterator().hasNext() && !producto.contiene(otro))
-            producto = compras.iterator().next();
-
-        return producto != null && producto.contiene(otro);
+//        Producto producto = null;
+//        if(compras.iterator().hasNext())
+//            producto = compras.iterator().next();
+//
+//
+//        //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
+//        while(compras.iterator().hasNext() && !producto.contiene(otro))
+//            producto = compras.iterator().next();
+//
+//        return producto != null && producto.contiene(otro);
     }
 
     public boolean comprar(Producto producto) {
-    	if (!estaComprado(producto)) {
+    	if (!estaComprado(producto) && Double.compare(presupuesto,producto.getPrecio()) >= 0 && Double.compare(horas,producto.getDuracion()) >= 0 ) {
             compras.add(producto);
             this.presupuesto -= producto.getPrecio();
             this.horas -= producto.getDuracion();
-            return true;
+            return producto.comprar();
         }
 
     	return false;

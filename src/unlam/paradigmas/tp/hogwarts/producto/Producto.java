@@ -18,6 +18,7 @@ public abstract class Producto {
 	
 	public abstract boolean contiene(Producto otro);
 
+	public abstract boolean comprar();
 	public boolean esPromocion ()   {
 		return this.esPromocion;
 	}
