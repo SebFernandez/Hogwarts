@@ -1,11 +1,11 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
-import unlam.paradigmas.tp.hogwarts.producto.ListaProductos;
+import unlam.paradigmas.tp.hogwarts.producto.ProductoIterator;
 
 public class Parque {
-	private ListaProductos productos;	
+	private ProductoIterator productos;	
 	
-	public Parque(ListaProductos productos) {
+	public Parque(ProductoIterator productos) {
 		this.productos = productos;
 	}
 	

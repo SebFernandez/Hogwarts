@@ -16,6 +16,7 @@ public class Promocion extends Producto {
 		this.atracciones = atracciones;
 		calcularDuracionFinal();
 		calcularPrecioOriginal();
+		precioFinalConDescuento = precioOriginal; // TODO corregir
 		this.esPromocion = true;
 	}
 
@@ -76,9 +77,18 @@ public class Promocion extends Producto {
 	}
 
 	@Override
-	public boolean contiene(Producto otro) {
-		// TODO completar metodo
-		return false;
+	public boolean contiene(Producto otro) { //TODO testear metodo
+		if(otro instanceof Promocion) {
+			Promocion otraPromocion = (Promocion)otro;
+
+			for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis atracciones
+				if(otraPromocion.contiene(atraccion))
+					return true;
+			}
+			return false;
+		}
+		// otro es Atraccion entonces pregunto si esta en mi lista de atracciones
+		return atracciones.contains(otro);
 	}
 
 	public void mostrarListaAtracciones() {
@@ -92,4 +102,12 @@ public class Promocion extends Producto {
         System.out.println("]");
 	}
 
+	@Override
+	public String toString() { // TODO revisar
+		String out = "Promocion, PrecioOriginal: " + precioOriginal + " Duracion total: " + duracion + "\nAtracciones:\n";
+		for (Atraccion atraccion : atracciones) {
+			out = out + atraccion.toString() ;
+		}
+		return out;
+	}
 }

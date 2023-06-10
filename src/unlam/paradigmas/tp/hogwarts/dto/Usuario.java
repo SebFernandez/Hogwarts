@@ -1,6 +1,8 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import unlam.paradigmas.tp.hogwarts.producto.Producto;
 
@@ -9,13 +11,14 @@ public class Usuario {
     private String gusto;
     private float presupuesto;
     private int horas;
-    private ResumenCompraDeUsuario compras;
+    private Set<Producto> compras;
     
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
         this.gusto = gusto;
         this.presupuesto = presupuesto;
         this.horas = horas;
+        this.compras = new HashSet<>();
     }
 
     public String getNombre() {
@@ -50,9 +53,29 @@ public class Usuario {
         this.horas = horas;
     }
     
-    //TODO esto es correcto? RTA: No se me ocurre qué podría representar la implementación del método contiene.
-    public boolean estaComprado(Producto producto) {
-    	return compras.estaComprado(producto);
+    //  TODO: chequear que no tire un null.
+    public boolean estaComprado(Producto otro) {
+        Producto producto = null;
+        if(compras.iterator().hasNext())
+            producto = compras.iterator().next();
+
+
+        //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
+        while(compras.iterator().hasNext() && !producto.contiene(otro))
+            producto = compras.iterator().next();
+
+        return producto != null && producto.contiene(otro);
+    }
+
+    public boolean comprar(Producto producto) {
+    	if (!estaComprado(producto)) {
+            compras.add(producto);
+            this.presupuesto -= producto.getPrecio();
+            this.horas -= producto.getDuracion();
+            return true;
+        }
+
+    	return false;
     }
 
     @Override

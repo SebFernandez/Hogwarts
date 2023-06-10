@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.*;
 
-import unlam.paradigmas.tp.hogwarts.dto.Parque;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.producto.Producto;
 import unlam.paradigmas.tp.hogwarts.producto.Promocion;
 
 public class Main {
@@ -22,10 +23,11 @@ public class Main {
 		System.out.println(
 				"\n\n----------------------------\t\tHogwarts les desea una feliz bienvenida\t\t----------------------------");
 
-		try {
-			Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
-			Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
-			List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
+
+		Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>();                       //  OK
+		Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
+		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
+		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
 
 			int indice = 0;
 			Promocion prod = new Promocion();
@@ -40,7 +42,7 @@ public class Main {
 			Scanner scanner = new Scanner(System.in);
 
 			do {
-				
+
 				prod = listaDePromociones.get(indice);
 				List<Atraccion> atrac1 = prod.getAtracciones();
 
