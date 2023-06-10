@@ -4,7 +4,7 @@ import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 public abstract class Producto {
 	
-//	protected boolean esPromocion; // TODO cual es la finalidad de esto?
+	protected boolean esPromocion;
 
 	public abstract boolean hayCupo();
 
@@ -17,6 +17,10 @@ public abstract class Producto {
 	public abstract double getDuracion();
 	
 	public abstract boolean contiene(Producto otro);
+
+	public boolean esPromocion ()   {
+		return this.esPromocion;
+	}
 	
 	public boolean esOfertable(Usuario usuario) {
 		return (usuario.getPresupuesto() >= this.getPrecio() &&

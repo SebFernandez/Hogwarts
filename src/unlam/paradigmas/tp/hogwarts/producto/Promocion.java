@@ -19,7 +19,7 @@ public class Promocion extends Producto {
 		calcularDuracionFinal();
 		calcularPrecioOriginal();
 		precioFinalConDescuento = precioOriginal; // TODO corregir
-//		this.esPromocion = true;
+		this.esPromocion = true;
 	}
 
 	public boolean hayCupo() {

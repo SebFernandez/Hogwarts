@@ -25,6 +25,9 @@ public class ProductoIterator implements Iterator<Producto> {  // TODO validad c
 
 	@Override
 	public boolean hasNext() {
+		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
+			indice++;
+
 		return indice < productos.size() && productos.get(indice).esOfertable(usuario);
 	}
 
@@ -36,9 +39,6 @@ public class ProductoIterator implements Iterator<Producto> {  // TODO validad c
 
 		Producto producto = productos.get(indice);
 		indice++;
-		
-		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
-			indice++;
 
 		return producto;
 	}

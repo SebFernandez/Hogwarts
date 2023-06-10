@@ -6,11 +6,11 @@ public class ProductoComparator implements Comparator<Producto> {
 	
 	@Override
 	public int compare(Producto prod1, Producto prod2) { // nueva version, reseñas?
-	    boolean esPromocion1 = prod1 instanceof Promocion;
-	    boolean esPromocion2 = prod2 instanceof Promocion;
+	    boolean esPromocion1 = prod1.esPromocion();
+	    boolean esPromocion2 = prod2.esPromocion();
 	    
 	    if (esPromocion1 && !esPromocion2)
-	        return 1; 
+	        return 1;
 	    else if (!esPromocion1 && esPromocion2) 
 	        return -1;
 

@@ -17,7 +17,7 @@ public class Atraccion extends Producto {
 		this.precio = precio;
 		this.cupo = cupo;
 		this.duracion = tiempo;
-//		this.esPromocion=false;
+		this.esPromocion=false;
 	}
 
 	public boolean hayCupo() {
