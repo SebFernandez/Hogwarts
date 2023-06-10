@@ -1,6 +1,5 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
-import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 public class Atraccion extends Producto {
 
@@ -71,7 +70,7 @@ public class Atraccion extends Producto {
 	}
 	@Override
 	public boolean contiene(Producto otro) {
-		if (otro instanceof Promocion) {	
+		if (otro instanceof Promocion) {
 			Promocion otraProm = (Promocion) otro;
 			return otraProm.getAtracciones().contains(this);
 		} 

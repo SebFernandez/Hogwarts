@@ -1,7 +1,5 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -44,8 +42,8 @@ public class ProductoIteratorTest {
 
         Iterator<Producto> productosIt= new ProductoIterator(productos, usuario);
         while (productosIt.hasNext()) {
-			Producto producto = (Producto) productosIt.next();
-			Assert.assertTrue(producto.equals(colaEsperados.poll()));
+			Producto producto = productosIt.next();
+            Assert.assertEquals(producto, colaEsperados.poll());
 		}
         Assert.assertTrue(colaEsperados.isEmpty());
 	}
