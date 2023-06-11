@@ -89,6 +89,6 @@ public class Atraccion extends Producto {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion + "\n";
+		return "Atracción\n"+ "Nombre: ["+ nombre +"]\nTipo: " + tipo + "\nPrecio: $" + precio + "\nDuración: " + duracion + " horas\n";
 	}
 }
