@@ -52,8 +52,7 @@ public class Usuario {
     public void setHoras(int horas) {
         this.horas = horas;
     }
-    
-    //  TODO: chequear que no tire un null.
+
     public boolean estaComprado(Producto otro) {
         for (Producto producto: compras) {
             if(producto.contiene(otro))

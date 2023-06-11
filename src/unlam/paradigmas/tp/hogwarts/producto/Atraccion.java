@@ -65,7 +65,7 @@ public class Atraccion extends Producto {
 
 		return nombre.equals(otra.getNombre()) &&
 				tipo.equals(otra.getTipo()) &&
-				Double.compare(duracion, otra.getDuracion()) ==0 && // TODO: revisar si es correcta esta comparacion
+				Double.compare(duracion, otra.getDuracion()) == 0 &&
 				Double.compare(precio,otra.getPrecio()) == 0;
 	}
 	@Override
@@ -78,7 +78,6 @@ public class Atraccion extends Producto {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion;
 	}
 }

@@ -10,9 +10,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ArchivosInputTests {
-	private static final String RUTA_ARCHIVO_USUARIOS = "archivos/preferencias_usuarios.csv";
-	private static final String RUTA_ARCHIVO_ATRACCIONES = "archivos/atracciones.csv";
-	private static final String RUTA_ARCHIVO_PROMOIONES = "archivos/promociones.csv";
+	private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
+	private static final String RUTA_ARCHIVO_ATRACCIONES = "Archivos/atracciones.csv";
+	private static final String RUTA_ARCHIVO_PROMOIONES = "Archivos/promociones.csv";
 
 	@Test
 	public void testLecturaUsuarios() throws IOException {

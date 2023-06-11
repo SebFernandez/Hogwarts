@@ -16,7 +16,6 @@ public class Promocion extends Producto {
 		this.atracciones = atracciones;
 		calcularDuracionFinal();
 		calcularPrecioOriginal();
-		precioFinalConDescuento = precioOriginal; // TODO corregir
 		this.esPromocion = true;
 	}
 
