@@ -8,78 +8,80 @@ import java.util.Set;
 import unlam.paradigmas.tp.hogwarts.producto.Producto;
 
 public class Usuario {
-    private String nombre;
-    private String gusto;
-    private float presupuesto;
-    private int horas;
-    private Set<Producto> compras;
-    
-    public Usuario(String nombre, String gusto, float presupuesto, int horas) {
-        this.nombre = nombre;
-        this.gusto = gusto;
-        this.presupuesto = presupuesto;
-        this.horas = horas;
-        this.compras = new HashSet<>();
-    }
+	private String nombre;
+	private String gusto;
+	private float presupuesto;
+	private int horas;
+	private Set<Producto> compras;
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Usuario(String nombre, String gusto, float presupuesto, int horas) {
+		this.nombre = nombre;
+		this.gusto = gusto;
+		this.presupuesto = presupuesto;
+		this.horas = horas;
+		this.compras = new HashSet<>();
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public Usuario() {
 
-    public String getGusto() {
-        return gusto;
-    }
+	}
 
-    public void setGusto(String gusto) {
-        this.gusto = gusto;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public float getPresupuesto() {
-        return presupuesto;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setPresupuesto(float presupuesto) {
-        this.presupuesto = presupuesto;
-    }
+	public String getGusto() {
+		return gusto;
+	}
 
-    public int getHoras() {
-        return horas;
-    }
+	public void setGusto(String gusto) {
+		this.gusto = gusto;
+	}
 
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-    
-    //  TODO: chequear que no tire un null.
-    public boolean estaComprado(Producto otro) {
-        Producto producto = null;
-        Iterator<Producto> itCompras = compras.iterator();
-        
-        if(itCompras.hasNext())
-            producto = itCompras.next();
+	public float getPresupuesto() {
+		return presupuesto;
+	}
 
+	public void setPresupuesto(float presupuesto) {
+		this.presupuesto = presupuesto;
+	}
 
-        //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
-        while(itCompras.hasNext() && !producto.contiene(otro))
-            producto = itCompras.next();
+	public int getHoras() {
+		return horas;
+	}
 
-        return producto != null && producto.contiene(otro);
-    }
+	public void setHoras(int horas) {
+		this.horas = horas;
+	}
 
-    public boolean comprar(Producto producto) {
-    	if (!estaComprado(producto)) {
-            compras.add(producto);
-            this.presupuesto -= producto.getPrecio();
-            this.horas -= producto.getDuracion();
-            return true;
-        }
+	// TODO: chequear que no tire un null.
+	public boolean estaComprado(Producto otro) {
+		Producto producto = null;
+		Iterator<Producto> itCompras = compras.iterator();
 
-    	return false;
-    }
+		if (itCompras.hasNext())
+			producto = itCompras.next();
+
+		while (itCompras.hasNext() && !producto.contiene(otro))
+			producto = itCompras.next();
+
+		return producto != null && producto.contiene(otro);
+	}
+
+	public boolean comprar(Producto producto) {
+		if (!estaComprado(producto)) {
+			compras.add(producto);
+			this.presupuesto -= producto.getPrecio();
+			this.horas -= producto.getDuracion();
+			return true;
+		}
+
+		return false;
+	}
 
 //    @Override
 //    public String toString() {
@@ -91,16 +93,19 @@ public class Usuario {
 //                '}';
 //    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 && getHoras() == usuario.getHoras() && Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Usuario usuario = (Usuario) o;
+		return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 && getHoras() == usuario.getHoras()
+				&& Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNombre(), getGusto(), getPresupuesto(), getHoras());
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(getNombre(), getGusto(), getPresupuesto(), getHoras());
+	}
 }

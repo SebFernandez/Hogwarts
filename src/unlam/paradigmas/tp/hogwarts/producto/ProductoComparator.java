@@ -10,15 +10,15 @@ public class ProductoComparator implements Comparator<Producto> {
 	    boolean esPromocion2 = prod2.esPromocion();
 	    
 	    if (esPromocion1 && !esPromocion2)
-	        return 1;
-	    else if (!esPromocion1 && esPromocion2) 
 	        return -1;
+	    else if (!esPromocion1 && esPromocion2) 
+	        return 1;
 
-	    int cmp = Double.compare(prod1.getPrecio(), prod2.getPrecio());
+	    int cmp = Double.compare(prod2.getPrecio(), prod1.getPrecio());
 	    if (cmp != 0) 
 	        return cmp;
 	   
-	    return Double.compare(prod1.getDuracion(), prod2.getDuracion());
+	    return Double.compare(prod2.getDuracion(), prod1.getDuracion());
 	}
 	
 //	@Override

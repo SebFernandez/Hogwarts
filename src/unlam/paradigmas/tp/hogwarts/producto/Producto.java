@@ -1,5 +1,9 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 public abstract class Producto {
@@ -28,4 +32,20 @@ public abstract class Producto {
 				!usuario.estaComprado(this) &&
 				this.hayCupo());
 	}
+	
+	
+	public static List<Producto> listarOfertas(List<Promocion> promos, Map<String, Atraccion> atrac)
+	{
+		List<Producto> ofertas = new ArrayList<>();
+		ofertas.addAll(promos);
+        ofertas.addAll(atrac.values());
+
+        ProductoComparator comparator = new ProductoComparator();
+        ofertas.sort(comparator);
+        
+        return ofertas;
+		
+	}
+	
+	
 }

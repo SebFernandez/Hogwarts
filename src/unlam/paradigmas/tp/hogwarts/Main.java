@@ -20,54 +20,46 @@ public class Main {
 	private static final String RUTA_ARCHIVO_PROMOCIONES = "Archivos/paquetes_a_ofrecer.csv";
 
 	public static void main(String[] args) throws IOException {
-		
-		System.out.println(
-				"\n\n----------------------------\t\tHogwarts les desea una feliz bienvenida\t\t----------------------------");
 
-		Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>(); // OK
+		// Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>(); // OK
 		Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
 		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
 
 		int indice = 0;
 		Promocion prod = new Promocion();
-//			prod = listaDePromociones.get(indice);
-//			List<Atraccion> atrac1 = prod.getAtracciones();
 
-		System.out.println(
-				"--------------------------------------------------------------------------------------------------------");
-		System.out.println("Nombre de visitante:\n");
+		System.out.println("\t\tBienvenido/a a Hogwarts");
 
-		boolean aceptada = false;
-		Scanner scanner = new Scanner(System.in);
+		System.out.println("--------------------------------------------------------------------------------");
+		// boolean aceptada = false;
+		// Scanner scanner = new Scanner(System.in);
 
-		
-		///Mostrando un mapa
-		atracciones.forEach((String, Atraccion)-> {
-            System.out.println(Atraccion);
-        });
-		
-		///Mostrando  promociones
-		
+		// LISTA DE PRODUCTOS
+
+		List<Producto> listaDeOfertas = Producto.listarOfertas(listaDePromociones, atracciones);
+
+		// System.out.println(ofertas);
+
+		Usuario usuActual = new Usuario();
+
+		usuActual = colaDeUsuarios.poll();
+
+		System.out.println("Nombre de visitante: " + usuActual.getNombre());
+
+		/// Mostrando un mapa
+//		atracciones.forEach((String, Atraccion) -> {
+//			System.out.println(Atraccion);
+//		});
+
+		/// Mostrando promociones
+
 		do {
 
 			prod = listaDePromociones.get(indice);
-			List<Atraccion> atrac1 = prod.getAtracciones();
+			// List<Atraccion> atrac1 = prod.getAtracciones();
 
-			System.out.println("Promoción");
-			System.out.print("-Atracciones incluidas: ");
-			prod.mostrarListaAtracciones();
-			System.out.println("-Duración: " + prod.getDuracion()+ " horas");
-			System.out.println("-Precio original: $" + prod.getPrecioOriginal());
-			System.out.print("-Precio con descuento: $");
-			System.out.println(String.format("%.0f", prod.getPrecio()));
-			System.out.println();
-//				System.out.println("¿Acepta sugerencia? Ingrese S o N");
-//				String respuesta = scanner.nextLine();
-//				if (respuesta.equalsIgnoreCase("S")) {
-//					System.out.println("¡Aceptada!");
-//					aceptada = true;
-//				}
+			System.out.println(prod);
 
 			indice++;
 

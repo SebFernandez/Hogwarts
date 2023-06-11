@@ -77,12 +77,13 @@ public class Promocion extends Producto {
 	}
 
 	@Override
-	public boolean contiene(Producto otro) { //TODO testear metodo
-		if(otro instanceof Promocion) {
-			Promocion otraPromocion = (Promocion)otro;
+	public boolean contiene(Producto otro) { // TODO testear metodo
+		if (otro instanceof Promocion) {
+			Promocion otraPromocion = (Promocion) otro;
 
-			for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis atracciones
-				if(otraPromocion.contiene(atraccion))
+			for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis
+														// atracciones
+				if (otraPromocion.contiene(atraccion))
 					return true;
 			}
 			return false;
@@ -91,23 +92,27 @@ public class Promocion extends Producto {
 		return atracciones.contains(otro);
 	}
 
-	public void mostrarListaAtracciones() {
-		System.out.print("[");
-        for (int i = 0; i < atracciones.size(); i++) {
-            System.out.print(atracciones.get(i).getNombre());
-            if (i < atracciones.size() - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
+	public String mostrarListaAtracciones() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for (int i = 0; i < atracciones.size(); i++) {
+			sb.append(atracciones.get(i).getNombre());
+			if (i < atracciones.size() - 1) {
+				sb.append(", ");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
 	}
 
 	@Override
 	public String toString() { // TODO revisar
-		String out = "Promocion, PrecioOriginal: " + precioOriginal + " Duracion total: " + duracion + "\nAtracciones:\n";
-		for (Atraccion atraccion : atracciones) {
-			out = out + atraccion.toString() ;
-		}
+		String outAtrac = mostrarListaAtracciones();
+		String out = "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
+				+ " horas\n-Precio original: $" + precioOriginal + "\n-Precio con descuento: $"
+				+ String.format("%.0f", precioFinalConDescuento);
+
 		return out;
 	}
+
 }
