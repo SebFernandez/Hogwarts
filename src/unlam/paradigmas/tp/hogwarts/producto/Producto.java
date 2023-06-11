@@ -18,7 +18,13 @@ public abstract class Producto {
 	
 	public abstract boolean contiene(Producto otro);
 
-	public abstract boolean comprar();
+	public boolean comprar() {
+		if(hayCupo()){
+			descontarCupo();
+			return true;
+		}
+		return false;
+	}
 	public boolean esPromocion ()   {
 		return this.esPromocion;
 	}

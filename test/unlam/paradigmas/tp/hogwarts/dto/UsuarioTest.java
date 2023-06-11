@@ -1,7 +1,5 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
@@ -11,20 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioTest {
-
 	@Test
 	public void comprarTest(){
 		Usuario usuario = new Usuario("carlos","aventura", 35F,65);
 		Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 15.0, 10, 40.0);
 		Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 1", 5.0, 15, 20.0);
-		Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 2", 30.1, 30, 4.0);
-		Atraccion atraccion4 = new Atraccion("Atracción 4", "Tipo 2", 5.0, 0, 4.0);
+
 
 		Assert.assertTrue(usuario.comprar(atraccion1));
-		Assert.assertFalse(usuario.comprar(atraccion1));
+		Assert.assertFalse(usuario.comprar(atraccion1)); // no se compra por que ya se compro
 		Assert.assertTrue(usuario.comprar(atraccion2));
-		Assert.assertFalse(usuario.comprar(atraccion3));
-		Assert.assertTrue(usuario.comprar(atraccion4));
+
+	}
+	@Test
+	public void comprarTest2(){
+		Usuario usuario = new Usuario("carlos","aventura", 35F,65);
+		Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 35.0002, 30, 4.0);
+		Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 2", 5.0, 0, 4.0);
+		Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 3", 5.0, 1, 67);
+		Assert.assertFalse(usuario.comprar(atraccion1)); // no se compra por precio
+		Assert.assertFalse(usuario.comprar(atraccion2)); // no se compra por cupo
+		Assert.assertFalse(usuario.comprar(atraccion3)); // no se compra por tiempo
 	}
 
 	@Test

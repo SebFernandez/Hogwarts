@@ -73,16 +73,9 @@ public class Atraccion extends Producto {
 		if (otro instanceof Promocion) {
 			Promocion otraProm = (Promocion) otro;
 			return otraProm.getAtracciones().contains(this);
-		} 
-		else /// si otro es atraccion entonces: 
+		} else /// si otro es atraccion entonces:
 			return this.equals(otro);
 	}
-
-	@Override
-	public boolean comprar() { // TODO: completar
-		return false;
-	}
-
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
