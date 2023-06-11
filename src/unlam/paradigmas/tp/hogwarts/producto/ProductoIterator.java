@@ -14,14 +14,7 @@ public class ProductoIterator implements Iterator<Producto> {  // TODO validad c
 	public ProductoIterator(List<Producto> productos,Usuario usuario) {
 		this.usuario = usuario;
 		this.productos = productos;
-		
-		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario)) // TODO revisar
-			indice++;
 	}
-
-//	public void ordenar() {
-//		productos.sort(new ProductoComparator());
-//	}
 
 	@Override
 	public boolean hasNext() {

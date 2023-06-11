@@ -1,6 +1,7 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -56,13 +57,15 @@ public class Usuario {
     //  TODO: chequear que no tire un null.
     public boolean estaComprado(Producto otro) {
         Producto producto = null;
-        if(compras.iterator().hasNext())
-            producto = compras.iterator().next();
+        Iterator<Producto> itCompras = compras.iterator();
+        
+        if(itCompras.hasNext())
+            producto = itCompras.next();
 
 
         //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
-        while(compras.iterator().hasNext() && !producto.contiene(otro))
-            producto = compras.iterator().next();
+        while(itCompras.hasNext() && !producto.contiene(otro))
+            producto = itCompras.next();
 
         return producto != null && producto.contiene(otro);
     }
@@ -78,15 +81,15 @@ public class Usuario {
     	return false;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "nombre='" + nombre + '\'' +
-                ", gusto='" + gusto + '\'' +
-                ", presupuesto=" + presupuesto +
-                ", horas=" + horas +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Usuario{" +
+//                "nombre='" + nombre + '\'' +
+//                ", gusto='" + gusto + '\'' +
+//                ", presupuesto=" + presupuesto +
+//                ", horas=" + horas +
+//                '}';
+//    }
 
     @Override
     public boolean equals(Object o) {
