@@ -6,46 +6,37 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class ProductoIterator implements Iterator<Producto> {  // TODO validad correcto funcionamiento
-	private final List<Producto> productos;
-	private final Usuario usuario;
-	private int indice = 0;
-	
-	public ProductoIterator(List<Producto> productos,Usuario usuario) {
-		this.usuario = usuario;
-		this.productos = productos;
-		
-		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario)) // TODO revisar
-			indice++;
-	}
+public class ProductoIterator implements Iterator<Producto> {
+    private final List<Producto> productos;
+    private int indice;
 
-//	public void ordenar() {
-//		productos.sort(new ProductoComparator());
-//	}
+    public ProductoIterator(List<Producto> productos, Usuario usuario) {
+        this.productos = productos;
+        this.indice = 0;
 
-	@Override
-	public boolean hasNext() {
-		//  TODO: Este while no debería estar acá.
-		while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
-			indice++;
+        while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
+            indice++;
+    }
 
-		return indice < productos.size() && productos.get(indice).esOfertable(usuario);
-	}
+    @Override
+    public boolean hasNext() {
+        return indice < productos.size();
+    }
 
-	@Override
-	public Producto next() {
-		if (!hasNext()) {
-			throw new NoSuchElementException();
-		}
+    @Override
+    public Producto next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
 
-		Producto producto = productos.get(indice);
-		indice++;
+        Producto producto = productos.get(indice);
+        indice++;
 
-		return producto;
-	}
+        return producto;
+    }
 
-	@Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
 }

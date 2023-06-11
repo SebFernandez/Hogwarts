@@ -18,25 +18,11 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		System.out.println("\n\n----------------------------\t\tHogwarts les desea una feliz bienvenida\t\t----------------------------");
 
-
-		Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>();                       //  OK
+		Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>();
 		Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
 		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
 
-
-		/*
-		iteración
-		el usuario no puede comprar más, agrego las compras de usuario
-		 */
-
 		System.out.println("\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
-
-	/*
-	*  TODO: La resolución debe incluir pruebas unitarias de:
-	*  1. las funcionalidades de paquete
-	*  2. totalizador de itinerarios
-	*  3. el ofertador de atracciones/paquetes.
-	 */
 }

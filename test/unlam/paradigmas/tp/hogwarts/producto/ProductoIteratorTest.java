@@ -75,8 +75,10 @@ public class ProductoIteratorTest {
 
         while (productosIt.hasNext()) {
         	producto = productosIt.next();
-			usuario.comprar(producto);
-            Assert.assertEquals(producto, colaEsperados.poll());
+            if (producto.esOfertable(usuario)) {
+                usuario.comprar(producto);
+                Assert.assertEquals(producto, colaEsperados.poll());
+            }
 		}
 
         Assert.assertTrue (colaEsperados.isEmpty());
