@@ -14,11 +14,7 @@ public class ProductoIterator implements Iterator<Producto> {
 
     public ProductoIterator(List<Producto> productos, Usuario usuario) {
         this.productos = productos;
-
         this.indice = 0;
-
-        while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
-            indice++;
     }
 
     public void reset() {

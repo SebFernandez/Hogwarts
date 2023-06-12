@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Ofertador {
 	private char opc;
-	private Scanner scanner = new Scanner(System.in);
-	private ProductoIterator productoIterator;
-	private Usuario usuario;
+	private final Scanner scanner = new Scanner(System.in);
+	private final ProductoIterator productoIterator;
+	private final Usuario usuario;
 
 	public Ofertador(Usuario usuario, ProductoIterator productoIterator) {
 		this.productoIterator = productoIterator;
@@ -28,9 +28,8 @@ public class Ofertador {
 		return this.opc;
 	}
 
-	public Usuario ofertaGustoUsuario() {
-		//int ite = 0;
-		do {
+	public void ofertaGustoUsuario() {
+		while(productoIterator.hasNext()){
 			Producto producto = productoIterator.next();
 			if (producto.esOfertable(usuario) && producto.esGustoPreferido(usuario)) {
 				System.out.println(producto);
@@ -38,14 +37,11 @@ public class Ofertador {
 				if (opc == 'S')
 					usuario.comprar(producto);
 			}
-		//	ite++;
-		} while (productoIterator.hasNext());
-		return this.usuario;
+		}
 	}
 
-	public Usuario ofertaNoGustoUsuario() {
-		//int ite = 0;
-		do {
+	public void ofertaNoGustoUsuario() {
+		while(productoIterator.hasNext()){
 			Producto producto = productoIterator.next();
 			if (producto.esOfertable(usuario) && !producto.esGustoPreferido(usuario)) {
 				System.out.println(producto);
@@ -53,8 +49,6 @@ public class Ofertador {
 				if (opc == 'S')
 					usuario.comprar(producto);
 			}
-			//ite++;
-		} while (productoIterator.hasNext());
-		return this.usuario;
+		}
 	}
 }
