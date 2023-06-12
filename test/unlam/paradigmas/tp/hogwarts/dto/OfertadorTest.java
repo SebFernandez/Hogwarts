@@ -167,7 +167,4 @@ public class OfertadorTest {
 		}
 		Assert.assertTrue(colaEsperados.isEmpty());
 	}
-
-
-
 }
