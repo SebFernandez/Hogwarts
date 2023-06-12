@@ -9,10 +9,12 @@ import java.util.NoSuchElementException;
 
 public class ProductoIterator implements Iterator<Producto> {
     private final List<Producto> productos;
+
     private int indice;
 
     public ProductoIterator(List<Producto> productos, Usuario usuario) {
         this.productos = productos;
+
         this.indice = 0;
 
         while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
@@ -33,11 +35,13 @@ public class ProductoIterator implements Iterator<Producto> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
+        Producto producto;
 
-        Producto producto = productos.get(indice);
+        producto = productos.get(indice);
         indice++;
 
         return producto;
+
     }
 
     @Override

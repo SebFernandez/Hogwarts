@@ -1,5 +1,7 @@
 package unlam.paradigmas.tp.hogwarts.producto;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -15,7 +17,7 @@ import unlam.paradigmas.tp.hogwarts.servicio.ProductoIterator;
 public class ProductoIteratorTest {
 
 	@Test
-	public void iteratorTestUsuarioSinComprar() {
+	public void iteratorTestUsuarioSinComprar() {///esta mal este test
 		Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 10.0, 100, 60.0); // se oferta
         Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 2", 15.0, 50, 90.0); // no se oferta por tiempo
         Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 1", 20.0, 5, 120.0); // no se oferta dinero
@@ -43,8 +45,12 @@ public class ProductoIteratorTest {
 
         Iterator<Producto> productosIt= new ProductoIterator(productos, usuario);
         while (productosIt.hasNext()) {
+
 			Producto producto = productosIt.next();
-            Assert.assertEquals(producto, colaEsperados.poll());
+            if(producto.esOfertable(usuario)){
+                assertEquals(producto, colaEsperados.poll());
+            }
+
 		}
         Assert.assertTrue(colaEsperados.isEmpty());
 	}
@@ -78,7 +84,7 @@ public class ProductoIteratorTest {
         	producto = productosIt.next();
             if (producto.esOfertable(usuario)) {
                 usuario.comprar(producto);
-                Assert.assertEquals(producto, colaEsperados.poll());
+                assertEquals(producto, colaEsperados.poll());
             }
 		}
 

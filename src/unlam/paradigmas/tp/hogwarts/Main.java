@@ -46,6 +46,7 @@ public class Main {
 			Ofertador ofertador = new Ofertador(usuario, productoIterator);
 
 			System.out.println("Nombre de Usuario: " + usuario.getNombre());
+			System.out.println("gusto:"+usuario.getGusto());
 			
 			usuario = ofertador.ofertaGustoUsuario();
 

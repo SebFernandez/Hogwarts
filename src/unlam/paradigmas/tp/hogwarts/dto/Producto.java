@@ -20,7 +20,6 @@ public abstract class Producto {
         ofertas.sort(comparator);
 
         return ofertas;
-
     }
 
     public abstract boolean hayCupo();

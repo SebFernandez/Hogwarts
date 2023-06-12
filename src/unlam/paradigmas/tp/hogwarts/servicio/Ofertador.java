@@ -29,7 +29,7 @@ public class Ofertador {
 	}
 
 	public Usuario ofertaGustoUsuario() {
-		int ite = 0;
+		//int ite = 0;
 		do {
 			Producto producto = productoIterator.next();
 			if (producto.esOfertable(usuario) && producto.esGustoPreferido(usuario)) {
@@ -38,13 +38,13 @@ public class Ofertador {
 				if (opc == 'S')
 					usuario.comprar(producto);
 			}
-			ite++;
-		} while (productoIterator.hasNext() && ite < 3);
+		//	ite++;
+		} while (productoIterator.hasNext());
 		return this.usuario;
 	}
 
 	public Usuario ofertaNoGustoUsuario() {
-		int ite = 0;
+		//int ite = 0;
 		do {
 			Producto producto = productoIterator.next();
 			if (producto.esOfertable(usuario) && !producto.esGustoPreferido(usuario)) {
@@ -53,8 +53,8 @@ public class Ofertador {
 				if (opc == 'S')
 					usuario.comprar(producto);
 			}
-			ite++;
-		} while (productoIterator.hasNext() && ite < 3);
+			//ite++;
+		} while (productoIterator.hasNext());
 		return this.usuario;
 	}
 }
