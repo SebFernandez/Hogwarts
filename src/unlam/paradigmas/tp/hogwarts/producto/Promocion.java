@@ -89,12 +89,27 @@ public class Promocion extends Producto {
 		// otro es Atraccion entonces pregunto si esta en mi lista de atracciones
 		return atracciones.contains(otro);
 	}
+
+	public String mostrarListaAtracciones() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for (int i = 0; i < atracciones.size(); i++) {
+			sb.append(atracciones.get(i).getNombre());
+			if (i < atracciones.size() - 1) {
+				sb.append(", ");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+
 	@Override
 	public String toString() { // TODO revisar
-		String out = "Promocion, PrecioOriginal: " + precioOriginal + " Duracion total: " + duracion + "\nAtracciones:\n";
-		for (Atraccion atraccion : atracciones) {
-			out = out + atraccion.toString() + "\n" ;
-		}
+		String outAtrac = mostrarListaAtracciones();
+		String out = "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
+				+ " horas\n-Precio original: $" + precioOriginal + "\n-Precio con descuento: $"
+				+ String.format("%.0f", precioFinalConDescuento);
+
 		return out;
 	}
 }
