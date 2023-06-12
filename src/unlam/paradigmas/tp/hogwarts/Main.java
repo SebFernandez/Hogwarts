@@ -6,10 +6,8 @@ import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDeUsuarios;
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.generarArchivoSalida;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
+
 import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
 import unlam.paradigmas.tp.hogwarts.dto.Producto;
 import unlam.paradigmas.tp.hogwarts.dto.Promocion;
@@ -25,16 +23,13 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 
-		Map<String, List<Producto>> resumenCompraDeUsuarios = new HashMap<>();
+		List<Usuario> resumenCompraDeUsuarios = new ArrayList<>();
 		Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
 		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
 
 		System.out.println("\t\tBienvenido/a a Hogwarts");
-
 		System.out.println("--------------------------------------------------------------------------------");
-
-		// LISTA DE PRODUCTOS
 
 		List<Producto> listaDeOfertas = Producto.prepararOfertas(listaDePromociones, atracciones);
 
@@ -52,20 +47,16 @@ public class Main {
 
 			ofertador.ofertaNoGustoUsuario();
 
-			resumenCompraDeUsuarios.put(usuario.getNombre(), usuario.getCompras());
+			resumenCompraDeUsuarios.add(usuario);
 		}
+
 		generarArchivoSalida(RUTA_ARCHIVO_SALIDA, resumenCompraDeUsuarios);
 		System.out.println(
 				"\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
 
 	/*
-	 * TODO 
-	 * 1. Agregar interacción compra o no compra con el Scanner comentado. DONE (revisar)
-	 * 2. Arreglar y/o revisar unit tests. xD
-	 * 3. Revisar set de Datos (achicar algunos nombres). 
-	 * 4. Llevar lógica del main a ofertador. DONE (revisar)
-	 * 5. Pruebas unitarias de ofertador,resumenCompras y constructores de paquete y atracciones.
+	 * TODO
 	 * 6. Actualizar diagramas de clase
 	 * 7. Grabar video
 	 * 8. Mejora formato archivo salida?

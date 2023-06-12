@@ -81,22 +81,21 @@ public class Archivo {
         }
     }
 
-    public static void generarArchivoSalida(String path, Map<String, List<Producto>> resumenCompraUsuario) throws IOException {
+    public static void generarArchivoSalida(String path, List<Usuario> resumenCompraUsuario) throws IOException {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
-            Iterator<String> iteradorCompras = resumenCompraUsuario.keySet().iterator();
-            while (iteradorCompras.hasNext()) {
-                String nombreUsuario = iteradorCompras.next();
+            for (Usuario usuario : resumenCompraUsuario) {
                 double precioTotal = 0;
                 double tiempoTotal = 0;
-                bufferedWriter.write("Usuario: " + nombreUsuario + "\n");
+
+                bufferedWriter.write("Usuario: " + usuario.getNombre() + "\n");
                 bufferedWriter.write("Compras: \n");
-                Iterator<Producto> iteradorProductos = resumenCompraUsuario.get(nombreUsuario).iterator();
-                while (iteradorProductos.hasNext()) {
-                    Producto prod = iteradorProductos.next();
-                    precioTotal += prod.getPrecio();
-                    tiempoTotal += prod.getDuracion();
-                    bufferedWriter.write(prod + "\n");
+
+                for (Producto producto : usuario.getCompras()) {
+                    precioTotal += producto.getPrecio();
+                    tiempoTotal += producto.getDuracion();
+                    bufferedWriter.write(producto + "\n");
                 }
+
                 bufferedWriter.write("Precio Final: " + String.format("%.2f", precioTotal) + "\n");
                 bufferedWriter.write("Tiempo Necesario: " + String.format("%.2f", tiempoTotal) + "\n\n");
             }
