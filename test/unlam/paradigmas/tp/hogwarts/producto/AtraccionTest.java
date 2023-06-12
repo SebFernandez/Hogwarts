@@ -2,6 +2,8 @@ package unlam.paradigmas.tp.hogwarts.producto;
 
 import org.junit.Assert;
 import org.junit.Test;
+import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.dto.Promocion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +17,9 @@ public class AtraccionTest {
 
         List<Atraccion> atraccionesPromocion = new ArrayList<>();
         atraccionesPromocion.add(atraccion1);
-        Promocion promocion = new Promocion(atraccionesPromocion);
+        Promocion promocion = new Promocion(atraccionesPromocion, "Aventura");
 
+        //      TODO: Arreglar éste assertEquals.
         Assert.assertEquals(atraccion1, atraccion1);
         Assert.assertEquals(atraccion1, atraccion2);
         Assert.assertNotEquals(atraccion2, atraccion3);

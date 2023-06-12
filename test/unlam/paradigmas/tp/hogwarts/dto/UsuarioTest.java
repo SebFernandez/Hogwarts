@@ -2,8 +2,6 @@ package unlam.paradigmas.tp.hogwarts.dto;
 
 import org.junit.Assert;
 import org.junit.Test;
-import unlam.paradigmas.tp.hogwarts.producto.Atraccion;
-import unlam.paradigmas.tp.hogwarts.producto.Promocion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +52,7 @@ public class UsuarioTest {
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion3);
 		atracciones.add(atraccion4);
-		Promocion promocion1 = new Promocion(atracciones);
+		Promocion promocion1 = new Promocion(atracciones , "Aventura");
 
 		usuario.comprar(promocion1);
 
@@ -76,13 +74,13 @@ public class UsuarioTest {
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion3);
 		atracciones.add(atraccion4);
-		Promocion promocion1 = new Promocion(atracciones);
+		Promocion promocion1 = new Promocion(atracciones, "Aventura");
 
 		atracciones.clear();
 
 		atracciones.add(atraccion2);
 		atracciones.add(atraccion1);
-		Promocion promocion2 = new Promocion(atracciones);
+		Promocion promocion2 = new Promocion(atracciones, "Aventura");
 
 		usuario.comprar(promocion1);
 

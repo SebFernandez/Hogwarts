@@ -2,6 +2,8 @@ package unlam.paradigmas.tp.hogwarts.producto;
 
 import org.junit.Assert;
 import org.junit.Test;
+import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.dto.Promocion;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ public class ProductoTest {
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion3);
 		
-		Promocion promocion = new Promocion(atracciones);
+		Promocion promocion = new Promocion(atracciones, "Aventura");
 
 		Assert.assertTrue(atraccion1.contiene(atraccion2));
 		Assert.assertTrue(promocion.contiene(atraccion1));
@@ -65,7 +67,7 @@ public class ProductoTest {
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion2);
 
-		Promocion promocion = new Promocion(atracciones);
+		Promocion promocion = new Promocion(atracciones, "Aventura");
 
 		promocion.comprar();
 
@@ -87,7 +89,7 @@ public class ProductoTest {
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion2);
 
-		Promocion promocion = new Promocion(atracciones);
+		Promocion promocion = new Promocion(atracciones, "Aventura");
 
 		Assert.assertFalse(promocion.comprar()); // por que atraccion 2 no tiene cupo
 	}

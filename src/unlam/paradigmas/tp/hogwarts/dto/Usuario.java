@@ -4,15 +4,13 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import unlam.paradigmas.tp.hogwarts.producto.Producto;
-
 public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
     private int horas; // TODO: esto deberia ser double?
     private Set<Producto> compras;
-    
+
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
         this.gusto = gusto;
@@ -53,9 +51,15 @@ public class Usuario {
         this.horas = horas;
     }
 
+    public Set<Producto> getCompras() {
+        return compras;
+    }
+
+    ;
+
     public boolean estaComprado(Producto otro) {
-        for (Producto producto: compras) {
-            if(producto.contiene(otro))
+        for (Producto producto : compras) {
+            if (producto.contiene(otro))
                 return true;
         }
         return false;
@@ -73,14 +77,14 @@ public class Usuario {
     }
 
     public boolean comprar(Producto producto) {
-    	if (!estaComprado(producto) && Double.compare(presupuesto,producto.getPrecio()) >= 0 && Double.compare(horas,producto.getDuracion()) >= 0 ) {
+        if (!estaComprado(producto) && Double.compare(presupuesto, producto.getPrecio()) >= 0 && Double.compare(horas, producto.getDuracion()) >= 0) {
             compras.add(producto);
             this.presupuesto -= producto.getPrecio();
             this.horas -= producto.getDuracion();
             return producto.comprar();
         }
 
-    	return false;
+        return false;
     }
 
     @Override

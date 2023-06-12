@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import unlam.paradigmas.tp.hogwarts.dto.*;
+import unlam.paradigmas.tp.hogwarts.servicio.ProductoIterator;
 
 public class ProductoIteratorTest {
 
@@ -23,7 +24,7 @@ public class ProductoIteratorTest {
 
         List<Atraccion> atraccionesPromocion = new ArrayList<>();
         atraccionesPromocion.add(atraccion1);
-        Promocion promocion1 = new Promocion(atraccionesPromocion);
+        Promocion promocion1 = new Promocion(atraccionesPromocion, "Aventura");
 
         List<Producto> productos = new ArrayList<>();
         productos.add(atraccion1);
@@ -56,7 +57,7 @@ public class ProductoIteratorTest {
 
         List<Atraccion> atraccionesPromocion = new ArrayList<>();
         atraccionesPromocion.add(atraccion1); // no se oferta
-        Promocion promocion1 = new Promocion(atraccionesPromocion);
+        Promocion promocion1 = new Promocion(atraccionesPromocion, "Aventura");
 
         List<Producto> productos = new ArrayList<>();
         productos.add(atraccion1);

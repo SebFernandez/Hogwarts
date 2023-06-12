@@ -1,5 +1,6 @@
-package unlam.paradigmas.tp.hogwarts.producto;
+package unlam.paradigmas.tp.hogwarts.servicio;
 
+import unlam.paradigmas.tp.hogwarts.dto.Producto;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 import java.util.Iterator;
@@ -16,6 +17,10 @@ public class ProductoIterator implements Iterator<Producto> {
 
         while (indice < productos.size() && !productos.get(indice).esOfertable(usuario))
             indice++;
+    }
+
+    public void reset() {
+        this.indice = 0;
     }
 
     @Override

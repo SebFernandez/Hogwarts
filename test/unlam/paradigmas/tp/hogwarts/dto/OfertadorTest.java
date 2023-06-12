@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ParqueTest { 	//TODO implementar tests
+public class OfertadorTest { 	//TODO implementar tests
 
 	@Test
 	public void test() {

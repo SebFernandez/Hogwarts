@@ -2,6 +2,9 @@ package unlam.paradigmas.tp.hogwarts.producto;
 
 import org.junit.Assert;
 import org.junit.Test;
+import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.dto.Promocion;
+import unlam.paradigmas.tp.hogwarts.servicio.ProductoComparator;
 
 import java.util.List;
 
@@ -28,7 +31,7 @@ public class ProductoComparatorTest {
 		Promocion promocion = new Promocion(List.of(
 				new Atraccion("Montaña Rusa", "Aventura", Double.parseDouble("25.0"), Integer.parseInt("10"), Double.parseDouble("2.5")),
 				new Atraccion("Pileta", "acuatico", Double.parseDouble("20.0"), Integer.parseInt("15"), Double.parseDouble("3.2"))
-		));
+		), "Aventura");
 
 		comparator = new ProductoComparator();
 		Atraccion atraccion = new Atraccion("museo", "historia", Double.parseDouble("50.5"), Integer.parseInt("25"), Double.parseDouble("4.5"));
