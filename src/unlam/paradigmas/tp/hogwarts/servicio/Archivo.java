@@ -1,11 +1,26 @@
 package unlam.paradigmas.tp.hogwarts.servicio;
 
-import unlam.paradigmas.tp.hogwarts.dto.*;
-
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
+import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
+import unlam.paradigmas.tp.hogwarts.dto.Producto;
+import unlam.paradigmas.tp.hogwarts.dto.Promocion;
+import unlam.paradigmas.tp.hogwarts.dto.PromocionAbsoluta;
+import unlam.paradigmas.tp.hogwarts.dto.PromocionAxB;
+import unlam.paradigmas.tp.hogwarts.dto.PromocionPorcentual;
+import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 
 public class Archivo {
 
@@ -81,5 +96,27 @@ public class Archivo {
 
             return listaDePromociones;
         }
+    }
+    
+    public static void generarArchivoSalida(String path, Map<String, Set<Producto>> resumenCompraUsuario) throws IOException {
+    	try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))){
+    		Iterator<String> iteradorCompras = resumenCompraUsuario.keySet().iterator();      
+    		while(iteradorCompras.hasNext()) {
+    			String nombreUsuario = iteradorCompras.next();
+    			double precioTotal = 0;
+            	double tiempoTotal = 0;
+    			bufferedWriter.write("Usuario: " + nombreUsuario + "\n");
+    			bufferedWriter.write("Compras: \n");
+    			Iterator<Producto> iteradorProductos = resumenCompraUsuario.get(nombreUsuario).iterator();
+    			while(iteradorProductos.hasNext()) {
+    				Producto prod = iteradorProductos.next();
+    				precioTotal += prod.getPrecio();
+    				tiempoTotal += prod.getDuracion();
+    				bufferedWriter.write(prod + "\n");
+    			}
+    			bufferedWriter.write("Precio Final: " + String.format("%.2f", precioTotal) + "\n");
+    			bufferedWriter.write("Tiempo Necesario: " + String.format("%.2f", tiempoTotal) + "\n\n");
+    		}
+    	}
     }
 }

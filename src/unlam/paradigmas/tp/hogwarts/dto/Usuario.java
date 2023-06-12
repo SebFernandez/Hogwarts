@@ -8,7 +8,7 @@ public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
-    private int horas; // TODO: esto deberia ser double?
+    private double horas; // TODO: esto deberia ser double? --> Simon
     private Set<Producto> compras;
 
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
@@ -43,7 +43,7 @@ public class Usuario {
         this.presupuesto = presupuesto;
     }
 
-    public int getHoras() {
+    public double getHoras() {
         return horas;
     }
 
@@ -89,12 +89,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nombre='" + nombre + '\'' +
-                ", gusto='" + gusto + '\'' +
-                ", presupuesto=" + presupuesto +
-                ", horas=" + horas +
-                '}';
+        return  "Usuario: " + nombre + " | " +
+                "Preferencia: " + gusto + " | " +
+                "Presupuesto: " + presupuesto + " | " +
+                "Horas: " + horas;
     }
 
     @Override
@@ -102,7 +100,7 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 && getHoras() == usuario.getHoras() && Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
+        return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 && Double.compare(getHoras(), usuario.getHoras()) == 0 && Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
     }
 
     @Override

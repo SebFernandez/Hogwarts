@@ -80,6 +80,9 @@ public class Atraccion extends Producto {
 
     @Override
     public String toString() {
-        return nombre + " Tipo: " + tipo + " Precio: " + precio + " Duracion: " + duracion;
+        return "Atracción" +
+        		"\nNombre: [" + nombre + "]" +
+        		"\n-Precio: $" + String.format("%.2f", precio) +
+        		"\n-Duración: " + String.format("%.2f", duracion);
     }
 }
