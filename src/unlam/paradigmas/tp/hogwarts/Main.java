@@ -48,11 +48,11 @@ public class Main {
 			System.out.println("Nombre de Usuario: " + usuario.getNombre());
 			System.out.println("gusto:"+usuario.getGusto());
 			
-			ofertador.ofertaGustoUsuario();
+			usuario = ofertador.ofertaGustoUsuario();
 
 			ofertador.reiniciarIterador();
 
-			ofertador.ofertaNoGustoUsuario();
+			usuario = ofertador.ofertaNoGustoUsuario();
 
 			resumenCompraDeUsuarios.put(usuario.getNombre(), usuario.getCompras());
 		}

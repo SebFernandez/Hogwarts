@@ -1,22 +1,22 @@
 package unlam.paradigmas.tp.hogwarts.dto;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
     private double horas; // TODO: esto deberia ser double? --> Simon
-    private Set<Producto> compras;
+    private List<Producto> compras;
 
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
         this.gusto = gusto;
         this.presupuesto = presupuesto;
         this.horas = horas;
-        this.compras = new HashSet<>();
+        this.compras = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -51,7 +51,7 @@ public class Usuario {
         this.horas = horas;
     }
 
-    public Set<Producto> getCompras() {
+    public List<Producto> getCompras() {
         return compras;
     }
 
@@ -89,7 +89,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  "Usuario: " + nombre + " | " +
+        return "Usuario: " + nombre + " | " +
                 "Preferencia: " + gusto + " | " +
                 "Presupuesto: " + presupuesto + " | " +
                 "Horas: " + horas;

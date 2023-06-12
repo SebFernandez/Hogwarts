@@ -2,7 +2,7 @@ package unlam.paradigmas.tp.hogwarts.dto;
 
 import unlam.paradigmas.tp.hogwarts.servicio.ProductoComparator;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +12,7 @@ public abstract class Producto {
     protected String tipo;
 
     public static List<Producto> prepararOfertas(List<Promocion> promociones, Map<String, Atraccion> atracciones) {
-        List<Producto> ofertas = new ArrayList<>();
+        List<Producto> ofertas = new LinkedList<>();
         ofertas.addAll(promociones);
         ofertas.addAll(atracciones.values());
 
