@@ -8,7 +8,7 @@ public class Usuario {
     private String nombre;
     private String gusto;
     private float presupuesto;
-    private double horas; // TODO: esto deberia ser double? --> Simon
+    private double horas;
     private List<Producto> compras;
 
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
@@ -62,18 +62,8 @@ public class Usuario {
             if (producto.contiene(otro))
                 return true;
         }
-        return false;
 
-//        Producto producto = null;
-//        if(compras.iterator().hasNext())
-//            producto = compras.iterator().next();
-//
-//
-//        //  TODO: URGENTE. Iterator de la colección Set nunca sale del while.
-//        while(compras.iterator().hasNext() && !producto.contiene(otro))
-//            producto = compras.iterator().next();
-//
-//        return producto != null && producto.contiene(otro);
+        return false;
     }
 
     public boolean comprar(Producto producto) {

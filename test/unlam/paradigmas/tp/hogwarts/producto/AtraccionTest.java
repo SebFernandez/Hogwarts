@@ -19,7 +19,6 @@ public class AtraccionTest {
         atraccionesPromocion.add(atraccion1);
         Promocion promocion = new Promocion(atraccionesPromocion, "Aventura");
 
-        //      TODO: Arreglar éste assertEquals.
         Assert.assertEquals(atraccion1, atraccion1);
         Assert.assertEquals(atraccion1, atraccion2);
         Assert.assertNotEquals(atraccion2, atraccion3);

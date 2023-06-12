@@ -102,7 +102,7 @@ public class Promocion extends Producto {
     }
 
     @Override
-    public String toString() { // TODO revisar
+    public String toString() {
         String outAtrac = mostrarListaAtracciones();
         String out = "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
                 + " horas\n-Precio original: $" + precioOriginal + "\n-Precio con descuento: $"
