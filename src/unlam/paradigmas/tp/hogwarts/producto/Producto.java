@@ -41,11 +41,11 @@ public abstract class Producto {
 	}
 	
 	
-	public static List<Producto> listarOfertas(List<Promocion> promos, Map<String, Atraccion> atrac)
+	public static List<Producto> prepararOfertas(List<Promocion> promociones, Map<String, Atraccion> atracciones)
 	{
 		List<Producto> ofertas = new ArrayList<>();
-		ofertas.addAll(promos);
-        ofertas.addAll(atrac.values());
+		ofertas.addAll(promociones);
+        ofertas.addAll(atracciones.values());
 
         ProductoComparator comparator = new ProductoComparator();
         ofertas.sort(comparator);

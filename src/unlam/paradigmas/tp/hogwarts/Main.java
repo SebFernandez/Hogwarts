@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Scanner;
 import java.util.*;
 
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
@@ -26,9 +25,6 @@ public class Main {
 		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
 
-		int indice = 0;
-		Promocion prod = new Promocion();
-
 		System.out.println("\t\tBienvenido/a a Hogwarts");
 
 		System.out.println("--------------------------------------------------------------------------------");
@@ -37,15 +33,13 @@ public class Main {
 
 		// LISTA DE PRODUCTOS
 
-		List<Producto> listaDeOfertas = Producto.listarOfertas(listaDePromociones, atracciones);
+		List<Producto> listaDeOfertas = Producto.prepararOfertas(listaDePromociones, atracciones);
 
 		// System.out.println(ofertas);
 
-		Usuario usuActual = new Usuario();
+		Usuario usuario = colaDeUsuarios.poll();
 
-		usuActual = colaDeUsuarios.poll();
-
-		System.out.println("Nombre de visitante: " + usuActual.getNombre());
+		System.out.println("Nombre de visitante: " + usuario.getNombre());
 
 		/// Mostrando un mapa
 //		atracciones.forEach((String, Atraccion) -> {
@@ -54,12 +48,14 @@ public class Main {
 
 		/// Mostrando promociones
 
+		Promocion promocion;
+		int indice = 0;
 		do {
 
-			prod = listaDePromociones.get(indice);
+			promocion = listaDePromociones.get(indice);
 			// List<Atraccion> atrac1 = prod.getAtracciones();
 
-			System.out.println(prod);
+			System.out.println(promocion);
 
 			indice++;
 
@@ -70,11 +66,4 @@ public class Main {
 		System.out.println(
 				"\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
 	}
-
-	/*
-	*  TODO: La resolución debe incluir pruebas unitarias de:
-	*  1. las funcionalidades de paquete
-	*  2. totalizador de itinerarios
-	*  3. el ofertador de atracciones/paquetes.
-	 */
 }
