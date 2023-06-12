@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
-
 import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
 import unlam.paradigmas.tp.hogwarts.dto.Producto;
 import unlam.paradigmas.tp.hogwarts.dto.Promocion;
@@ -27,7 +25,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 
-		Map<String, Set<Producto>> resumenCompraDeUsuarios = new HashMap<>();
+		Map<String, List<Producto>> resumenCompraDeUsuarios = new HashMap<>();
 		Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
 		Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
 		List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
@@ -48,11 +46,11 @@ public class Main {
 			System.out.println("Nombre de Usuario: " + usuario.getNombre());
 			System.out.println("gusto:"+usuario.getGusto());
 			
-			usuario = ofertador.ofertaGustoUsuario();
+			ofertador.ofertaGustoUsuario();
 
 			ofertador.reiniciarIterador();
 
-			usuario = ofertador.ofertaNoGustoUsuario();
+			ofertador.ofertaNoGustoUsuario();
 
 			resumenCompraDeUsuarios.put(usuario.getNombre(), usuario.getCompras());
 		}
