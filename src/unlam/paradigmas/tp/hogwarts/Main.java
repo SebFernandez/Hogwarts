@@ -13,7 +13,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
+import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.generarArchivoSalida;
+import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDeAtracciones;
+import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDePromociones;
+import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDeUsuarios;
 
 public class Main {
     private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
