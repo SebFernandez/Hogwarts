@@ -18,16 +18,14 @@ public class ProductoTest {
     @Test
     public void CompareListaOrdenada() {
 
-        //arrange
         Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 70.0, 10, 60.0);
         Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 2", 15.0, 15, 60.0);
         Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 3", 15.0, 5, 20.0);
 
-        Atraccion atraccionMasCara = new Atraccion("atraccion 4", "Tipo 7", 1000.0, 5, 30.0);//atraccion mas cara
-        Atraccion atraccionSegundaMayorTiempo = new Atraccion("atraccion 6", "Tipo 8", 500.0, 5, 15.0);//atraccion mayor tiempor
+        Atraccion atraccionMasCara = new Atraccion("atraccion 4", "Tipo 7", 1000.0, 5, 30.0);
+        Atraccion atraccionSegundaMayorTiempo = new Atraccion("atraccion 6", "Tipo 8", 500.0, 5, 15.0);
         Atraccion atraccionTerceraMenorTiempo = new Atraccion("atraccion 7", "Tipo 7", 500.0, 5, 10.0);
 
-        ///creo las promociones
         List<Atraccion> atraccion = new ArrayList<>();
         atraccion.add(atraccion1);
         Promocion promocionMasCara = new Promocion(atraccion, "aventura");
@@ -40,24 +38,20 @@ public class ProductoTest {
         atraccion.add(atraccion3);
         Promocion promocionTerceroConMenorTiempo = new Promocion(atraccionTercera, "aventura");
 
-        ///creo la lista de promociones
         List<Promocion> listaDePromociones = new ArrayList<>();
         listaDePromociones.add(promocionMasCara);
         listaDePromociones.add(promocionSegundoConMayorTiempo);
         listaDePromociones.add(promocionTerceroConMenorTiempo);
 
-        ///creo el map de atracciones ///es alpedo esto
         List<Producto> atraccionesOrdenados = new LinkedList<>();
         atraccionesOrdenados.add(atraccionMasCara);
         atraccionesOrdenados.add(atraccionSegundaMayorTiempo);
         atraccionesOrdenados.add(atraccionTerceraMenorTiempo);
 
-        ///lista ordenada
         List<Producto> listaEsperado = new LinkedList<>();
         listaEsperado.addAll(listaDePromociones);
         listaEsperado.addAll(atraccionesOrdenados);
 
-        ///lista no ordenada
         List<Producto> listaNoOrdenada = new LinkedList<>();
         listaEsperado.add(promocionTerceroConMenorTiempo);
         listaEsperado.add(promocionMasCara);
@@ -66,8 +60,6 @@ public class ProductoTest {
         listaEsperado.add(promocionSegundoConMayorTiempo);
         listaEsperado.add(atraccionTerceraMenorTiempo);
 
-
-        //act
         listaNoOrdenada.sort(new ProductoComparator());
 
         int i = 0;
@@ -80,13 +72,10 @@ public class ProductoTest {
     @Test
     public void atraccionContieneAtraccionTest() {
 
-        ///arrange
         Atraccion atraccion1 = new Atraccion("Atracción ", "Tipo 1", 15.0, 10, 60.0);
         Atraccion atraccion2 = new Atraccion("Atracción ", "Tipo 1", 15.0, 15, 60.0);
         Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 2", 5.0, 5, 20.0);
 
-
-        ///assert
         Assert.assertTrue(atraccion1.contiene(atraccion2));
         Assert.assertFalse(atraccion1.contiene(atraccion3));
 
@@ -95,7 +84,6 @@ public class ProductoTest {
     @Test
     public void PromocionContienePromocionTest() {
 
-        //arrange
         Atraccion atraccion1 = new Atraccion("Atracción ", "Tipo 1", 15.0, 10, 60.0);
         Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 2", 5.0, 5, 20.0);
 
@@ -105,7 +93,6 @@ public class ProductoTest {
 
         Promocion promocion = new Promocion(atracciones, "Aventura");
 
-        //act
         Assert.assertTrue(promocion.contiene(promocion));
 
     }
@@ -129,14 +116,14 @@ public class ProductoTest {
 
     @Test
     public void esOfertableTest() {
-        ///arrange
+
         Usuario usuario = new Usuario("carlos", "aventura", 30, 40);
         Atraccion atraccion1 = new Atraccion("Atracción 1", "aventura", 15.0, 10, 40.0);// es ofertable
         Atraccion atraccion2 = new Atraccion("Atracción 2", "aventura", 15.0, 15, 60.0);// no es ofertable por tiempo
         Atraccion atraccion3 = new Atraccion("Atracción 3", "accion", 30.1, 30, 20.0);// no es ofertable por precio
         Atraccion atraccion4 = new Atraccion("Atracción 4", "accion", 5.0, 0, 20.0);// no es ofertable por cupo
 
-        ///arrange
+
         Assert.assertTrue(atraccion1.esOfertable(usuario));
         Assert.assertFalse(atraccion2.esOfertable(usuario));
         Assert.assertFalse(atraccion3.esOfertable(usuario));
@@ -145,31 +132,31 @@ public class ProductoTest {
 
     @Test
     public void verificarCuposDespuesComprarAtraccion() {
-        ///Arrange
+
         Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 15.0, 10, 40.0);
         int cuposEsperado = 9;
 
-        ///act
+
         atraccion1.comprar();
-        //assert
+
         Assert.assertEquals(cuposEsperado, atraccion1.getCupo());
     }
 
     @Test
     public void comprarAtraccionSinCupo() {
-        ///arrange
+
         Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 15.0, 0, 40.0);
         int cuposEsperado = 0;
-        //act
+
         boolean noCompra = atraccion1.comprar();
-        //Assert
+
         Assert.assertFalse(noCompra);
         Assert.assertEquals(cuposEsperado, atraccion1.getCupo());
     }
 
     @Test
     public void compraPromocionYActualizaAtracciones() {
-        ///arrange
+
         Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 15.0, 10, 60.0);
         Atraccion atraccion2 = new Atraccion("Atracción 3", "Tipo 2", 5.0, 5, 20.0);
 
@@ -182,10 +169,9 @@ public class ProductoTest {
         Queue<Integer> cuposEsperados = new LinkedList<>();
         cuposEsperados.offer(9);
         cuposEsperados.offer(4);
-        ///act
+
         promocion.comprar();
 
-        ///assert
         for (Atraccion atraccion : atracciones) {
             Assert.assertEquals((int) cuposEsperados.poll(), atraccion.getCupo());
         }
@@ -193,7 +179,7 @@ public class ProductoTest {
 
     @Test
     public void comprarPromocionQueUnAtraccionNoTieneCupo() {
-        ///arrange
+
         Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 15.0, 10, 60.0);
         Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 1", 15.0, 0, 60.0);
 
@@ -202,9 +188,9 @@ public class ProductoTest {
         atracciones.add(atraccion2);
         Promocion promocion = new Promocion(atracciones, "Aventura");
         boolean accionEsperado;
-        ///act
+
         accionEsperado = promocion.comprar();
-        //assert
-        Assert.assertFalse(accionEsperado); // por que atraccion 2 no tiene cupo
+
+        Assert.assertFalse(accionEsperado);
     }
 }
