@@ -12,20 +12,16 @@ import java.util.List;
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
 
 public class Main {
-    private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
-    private static final String RUTA_ARCHIVO_ATRACCIONES = "Archivos/Atracciones.csv";
-    private static final String RUTA_ARCHIVO_PROMOCIONES = "Archivos/paquetes_a_ofrecer.csv";
-    private static final String RUTA_ARCHIVO_SALIDA = "Archivos/resumen_compra_usuarios.out";
 
     public static void main(String[] args) {
         try {
-            LinkedList<Producto> productos = armarProductos(RUTA_ARCHIVO_ATRACCIONES, RUTA_ARCHIVO_PROMOCIONES);
-            List<Usuario> usuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
+            LinkedList<Producto> productos = armarProductos();
+            List<Usuario> usuarios = lecturaDeUsuarios();
 
             Ofertador ofertador = new Ofertador(productos);
             ofertador.ofertarParaUsuarios(usuarios);
 
-            generarArchivoSalida(RUTA_ARCHIVO_SALIDA, usuarios);
+            generarArchivoSalida(usuarios);
 
         } catch (IOException e) {
             e.printStackTrace();
