@@ -7,8 +7,8 @@ import java.util.*;
 
 public class Archivo {
 
-    public static Queue<Usuario> lecturaDeUsuarios(String path) throws IOException {
-        Queue<Usuario> colaDeUsuarios = new LinkedList<>();
+    public static List<Usuario> lecturaDeUsuarios(String path) throws IOException {
+        List<Usuario> colaDeUsuarios = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -27,7 +27,15 @@ public class Archivo {
         }
     }
 
-    public static Map<String, Atraccion> lecturaDeAtracciones(String path) throws IOException {
+    public static LinkedList<Producto> armarProductos(String pathAtracciones, String pathPromociones) throws IOException {
+
+        Map<String, Atraccion> atracciones = lecturaDeAtracciones(pathAtracciones);
+        List<Promocion> listaDePromociones = lecturaDePromociones(pathPromociones, atracciones);
+
+        return Producto.prepararOfertas(listaDePromociones, atracciones);
+    }
+
+    private static Map<String, Atraccion> lecturaDeAtracciones(String path) throws IOException {
         Map<String, Atraccion> atracciones = new HashMap<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
@@ -48,7 +56,7 @@ public class Archivo {
         }
     }
 
-    public static List<Promocion> lecturaDePromociones(String path, Map<String, Atraccion> atracciones) throws IOException {
+    private static List<Promocion> lecturaDePromociones(String path, Map<String, Atraccion> atracciones) throws IOException {
         List<Promocion> listaDePromociones = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
