@@ -24,7 +24,7 @@ public class Ofertador {
         return opc;
     }
 
-    public void ofertaGustoUsuario() {
+    private void ofertaGustoUsuario() {
         for (Producto producto : productos ) {
             if (producto.esOfertable(usuario) && producto.esGustoPreferido(usuario)) {
                 System.out.println(producto);
@@ -34,7 +34,7 @@ public class Ofertador {
         }
     }
 
-    public void ofertaNoGustoUsuario() {
+    private void ofertaNoGustoUsuario() {
         for (Producto producto : productos) {
             if (producto.esOfertable(usuario) && !producto.esGustoPreferido(usuario)) {
                 System.out.println(producto);
@@ -44,7 +44,7 @@ public class Ofertador {
         }
     }
 
-    public void setUsuario(Usuario usuario){
+    private void setUsuario(Usuario usuario){
         this.usuario = usuario;
     }
 

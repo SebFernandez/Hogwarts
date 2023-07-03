@@ -11,6 +11,7 @@ public abstract class Producto {
     protected boolean esPromocion;
     protected String tipo;
 
+    //TODO: testear
     public static LinkedList<Producto> prepararOfertas(List<Promocion> promociones, Map<String, Atraccion> atracciones) {
         LinkedList<Producto> ofertas = new LinkedList<>();
         ofertas.addAll(promociones);
