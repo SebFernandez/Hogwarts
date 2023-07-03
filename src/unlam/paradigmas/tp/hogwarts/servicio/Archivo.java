@@ -74,20 +74,15 @@ public class Archivo {
                     lineasLeidas++;
                 }
 
-                switch (datos[1]) {
-                    case "Porcentual" -> {
-                        var promo = new PromocionPorcentual(listaDeAtracciones, tipoPaquete, descuento);
-                        listaDePromociones.add(promo);
-                    }
-                    case "Absoluta" -> {
-                        var promo = new PromocionAbsoluta(listaDeAtracciones, tipoPaquete, descuento);
-                        listaDePromociones.add(promo);
-                    }
-                    case "AxB" -> {
-                        var promo = new PromocionAxB(listaDeAtracciones, tipoPaquete, descuento);
-                        listaDePromociones.add(promo);
-                    }
-                    default -> throw new IllegalStateException("Unexpected value: " + datos[1]);
+                if (datos[1].equals("Porcentual")) {
+                    var promo = new PromocionPorcentual(listaDeAtracciones, tipoPaquete, descuento);
+                    listaDePromociones.add(promo);
+                } else if (datos[1].equals("Absoluta")) {
+                    var promo = new PromocionAbsoluta(listaDeAtracciones, tipoPaquete, descuento);
+                    listaDePromociones.add(promo);
+                } else if (datos[1].equals("AxB")) {
+                    var promo = new PromocionAxB(listaDeAtracciones, tipoPaquete, descuento);
+                    listaDePromociones.add(promo);
                 }
             }
 
