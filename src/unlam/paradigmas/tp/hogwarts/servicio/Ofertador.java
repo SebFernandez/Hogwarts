@@ -2,7 +2,6 @@ package unlam.paradigmas.tp.hogwarts.servicio;
 
 import unlam.paradigmas.tp.hogwarts.dto.Producto;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +25,7 @@ public class Ofertador {
     }
 
     private void ofertaGustoUsuario() {
-        for (Producto producto : productos) {
+        for (Producto producto : productos ) {
             if (producto.esOfertable(usuario) && producto.esGustoPreferido(usuario)) {
                 System.out.println(producto);
                 if (ofrecerSugerencia() == 'S')
@@ -45,11 +44,11 @@ public class Ofertador {
         }
     }
 
-    private void setUsuario(Usuario usuario) {
+    private void setUsuario(Usuario usuario){
         this.usuario = usuario;
     }
 
-    public void ofertarParaUsuarios(List<Usuario> usuarios) {
+    public void ofertarParaUsuarios(List<Usuario> usuarios){
         printBienvenida();
         for (Usuario usuario : usuarios) {
             System.out.println("Nombre de Usuario: " + usuario.getNombre());
@@ -62,12 +61,12 @@ public class Ofertador {
         printDespedida();
     }
 
-    private void printBienvenida() {
+    private void printBienvenida(){
         System.out.println("\t\tBienvenido/a a Hogwarts");
         System.out.println("--------------------------------------------------------------------------------");
     }
 
-    private void printDespedida() {
+    private void printDespedida(){
         System.out.println(
                 "\n\n----------------------------\t\t\t\t\t¡Vuelvan pronto!\t\t\t\t----------------------------\n\n");
     }

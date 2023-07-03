@@ -75,8 +75,7 @@ public class Promocion extends Producto {
 
     @Override
     public boolean contiene(Producto otro) {
-        if (otro instanceof Promocion) {
-            Promocion otraPromocion = (Promocion) otro;
+        if (otro instanceof Promocion otraPromocion) {
 
             for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis atracciones
                 if (otraPromocion.contiene(atraccion))
@@ -104,10 +103,8 @@ public class Promocion extends Producto {
     @Override
     public String toString() {
         String outAtrac = mostrarListaAtracciones();
-        String out = "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
+        return "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
                 + " horas\n-Precio original: $" + precioOriginal + "\n-Precio con descuento: $"
                 + String.format("%.0f", precioFinalConDescuento);
-
-        return out;
     }
 }

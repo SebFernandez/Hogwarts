@@ -34,94 +34,95 @@ Promoción
 -Duración: 18.0 horas
 -Precio original: $63.0
 -Precio con descuento: $13
-Precio Final: 455.30
-Tiempo Necesario: 100.00
+Atracción
+Nombre: [Los Cuentos de Beedle el Bardo]
+-Precio: $20.00
+-Duración: 4.00
+Atracción
+Nombre: [El Caldero Chorreante]
+-Precio: $8.00
+-Duración: 6.00
+Precio Final: 483.30
+Tiempo Necesario: 110.00
 
 Usuario: Victor
 Compras: 
-Precio Final: 0.00
-Tiempo Necesario: 0.00
+Atracción
+Nombre: [Reunion de Espiritus del Torneo de los Tres Magos]
+-Precio: $40.00
+-Duración: 6.00
+Atracción
+Nombre: [Los Cuentos de Beedle el Bardo]
+-Precio: $20.00
+-Duración: 4.00
+Atracción
+Nombre: [Celestina Warbeck y las Banshees]
+-Precio: $15.00
+-Duración: 2.00
+Promoción
+-Atracciones incluidas:[Aventura en Motocicleta de Criaturas Magicas de Hagrid, Harry Potter y el Viaje Prohibido, Vuelo del Hipogrifo]
+-Duración: 12.0 horas
+-Precio original: $152.0
+-Precio con descuento: $122
+Promoción
+-Atracciones incluidas:[Cerveza de Mantequilla, Las Tres Escobas]
+-Duración: 9.0 horas
+-Precio original: $91.0
+-Precio con descuento: $64
+Promoción
+-Atracciones incluidas:[Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders]
+-Duración: 8.0 horas
+-Precio original: $22.0
+-Precio con descuento: $19
+Promoción
+-Atracciones incluidas:[Fuente de la Fortuna Justa, Elixir Refrescante de Eternelle, Carreta de Taxis de Londres]
+-Duración: 18.0 horas
+-Precio original: $63.0
+-Precio con descuento: $13
+Atracción
+Nombre: [Cambia tu dinero Muggle en la casa de cambio de Gringotts]
+-Precio: $92.00
+-Duración: 1.00
+Atracción
+Nombre: [Heladeria de Florean Fortescue]
+-Precio: $88.00
+-Duración: 4.00
+Atracción
+Nombre: [Haz Hechizos Con Tu Varita Interactiva]
+-Precio: $30.00
+-Duración: 6.00
+Precio Final: 502.00
+Tiempo Necesario: 70.00
 
 Usuario: Alexis
 Compras: 
-Precio Final: 0.00
-Tiempo Necesario: 0.00
-
-Usuario: Sebastian
-Compras: 
-Precio Final: 0.00
-Tiempo Necesario: 0.00
-
-Usuario: Juan Manuel
-Compras: 
-Atracción
-Nombre: [La Cabeza de Puerco]
--Precio: $47.00
--Duración: 2.00
-Atracción
-Nombre: [Las Tres Escobas]
--Precio: $46.00
--Duración: 5.00
-Atracción
-Nombre: [El Caldero Saltarin]
--Precio: $45.00
--Duración: 8.00
-Atracción
-Nombre: [Cerveza de Mantequilla]
--Precio: $45.00
--Duración: 4.00
+Promoción
+-Atracciones incluidas:[Aventura en Motocicleta de Criaturas Magicas de Hagrid, Harry Potter y el Viaje Prohibido, Vuelo del Hipogrifo]
+-Duración: 12.0 horas
+-Precio original: $152.0
+-Precio con descuento: $122
 Atracción
 Nombre: [Harry Potter y la Escapada de Gringotts]
 -Precio: $37.00
 -Duración: 6.00
 Atracción
-Nombre: [Aventura en Motocicleta de Criaturas Magicas de Hagrid]
--Precio: $35.00
--Duración: 5.00
-Atracción
-Nombre: [Conoce al Chofer del Knight Bus]
--Precio: $34.00
--Duración: 1.00
-Atracción
-Nombre: [Vuelo del Hipogrifo]
--Precio: $32.00
--Duración: 3.00
-Atracción
-Nombre: [Haz Hechizos Con Tu Varita Interactiva]
--Precio: $30.00
--Duración: 6.00
-Atracción
-Nombre: [Elixir Refrescante de Eternelle]
--Precio: $25.00
--Duración: 9.00
-Atracción
-Nombre: [Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders]
--Precio: $22.00
--Duración: 8.00
-Atracción
-Nombre: [Fuente de la Fortuna Justa]
--Precio: $20.00
--Duración: 7.00
-Atracción
-Nombre: [Carreta de Taxis de Londres]
--Precio: $18.00
--Duración: 2.00
-Atracción
 Nombre: [Expreso de Hogwarts: Estacion de Hogsmeade]
 -Precio: $14.00
 -Duración: 5.00
-Atracción
-Nombre: [Conoce al Conductor del Hogwarts Express]
--Precio: $12.00
--Duración: 7.00
-Atracción
-Nombre: [El Caldero Chorreante]
--Precio: $8.00
--Duración: 6.00
-Precio Final: 470.00
-Tiempo Necesario: 84.00
+Promoción
+-Atracciones incluidas:[Cerveza de Mantequilla, Las Tres Escobas]
+-Duración: 9.0 horas
+-Precio original: $91.0
+-Precio con descuento: $64
+Promoción
+-Atracciones incluidas:[Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders]
+-Duración: 8.0 horas
+-Precio original: $22.0
+-Precio con descuento: $19
+Precio Final: 255.00
+Tiempo Necesario: 40.00
 
-Usuario: Isaias
+Usuario: Sebastian
 Compras: 
 Promoción
 -Atracciones incluidas:[Cerveza de Mantequilla, Las Tres Escobas]
@@ -141,6 +142,22 @@ Nombre: [El Caldero Saltarin]
 -Precio: $45.00
 -Duración: 8.00
 Atracción
+Nombre: [Reunion de Espiritus del Torneo de los Tres Magos]
+-Precio: $40.00
+-Duración: 6.00
+Atracción
+Nombre: [Harry Potter y la Escapada de Gringotts]
+-Precio: $37.00
+-Duración: 6.00
+Atracción
+Nombre: [Aventura en Motocicleta de Criaturas Magicas de Hagrid]
+-Precio: $35.00
+-Duración: 5.00
+Atracción
+Nombre: [Vuelo del Hipogrifo]
+-Precio: $32.00
+-Duración: 3.00
+Atracción
 Nombre: [Elixir Refrescante de Eternelle]
 -Precio: $25.00
 -Duración: 9.00
@@ -149,14 +166,113 @@ Nombre: [Fuente de la Fortuna Justa]
 -Precio: $20.00
 -Duración: 7.00
 Atracción
+Nombre: [Los Cuentos de Beedle el Bardo]
+-Precio: $20.00
+-Duración: 4.00
+Atracción
+Nombre: [Celestina Warbeck y las Banshees]
+-Precio: $15.00
+-Duración: 2.00
+Atracción
 Nombre: [El Caldero Chorreante]
 -Precio: $8.00
 -Duración: 6.00
+Precio Final: 475.70
+Tiempo Necesario: 71.00
+
+Usuario: Juan Manuel
+Compras: 
+Atracción
+Nombre: [Reunion de Espiritus del Torneo de los Tres Magos]
+-Precio: $40.00
+-Duración: 6.00
+Atracción
+Nombre: [Los Cuentos de Beedle el Bardo]
+-Precio: $20.00
+-Duración: 4.00
 Promoción
--Atracciones incluidas:[Aventura en Motocicleta de Criaturas Magicas de Hagrid, Harry Potter y el Viaje Prohibido, Vuelo del Hipogrifo]
--Duración: 12.0 horas
--Precio original: $152.0
--Precio con descuento: $122
+-Atracciones incluidas:[Cerveza de Mantequilla, Las Tres Escobas]
+-Duración: 9.0 horas
+-Precio original: $91.0
+-Precio con descuento: $64
+Promoción
+-Atracciones incluidas:[Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders]
+-Duración: 8.0 horas
+-Precio original: $22.0
+-Precio con descuento: $19
+Atracción
+Nombre: [Cambia tu dinero Muggle en la casa de cambio de Gringotts]
+-Precio: $92.00
+-Duración: 1.00
+Atracción
+Nombre: [Heladeria de Florean Fortescue]
+-Precio: $88.00
+-Duración: 4.00
+Atracción
+Nombre: [Echa un vistazo a Dark Magic en el Knockturn Alley]
+-Precio: $77.00
+-Duración: 2.00
+Atracción
+Nombre: [La Cabeza de Puerco]
+-Precio: $47.00
+-Duración: 2.00
+Atracción
+Nombre: [El Caldero Saltarin]
+-Precio: $45.00
+-Duración: 8.00
+Atracción
+Nombre: [Harry Potter y la Escapada de Gringotts]
+-Precio: $37.00
+-Duración: 6.00
+Atracción
+Nombre: [Aventura en Motocicleta de Criaturas Magicas de Hagrid]
+-Precio: $35.00
+-Duración: 5.00
+Atracción
+Nombre: [Conoce al Chofer del Knight Bus]
+-Precio: $34.00
+-Duración: 1.00
+Atracción
+Nombre: [Vuelo del Hipogrifo]
+-Precio: $32.00
+-Duración: 3.00
+Atracción
+Nombre: [Fuente de la Fortuna Justa]
+-Precio: $20.00
+-Duración: 7.00
+Atracción
+Nombre: [Conoce al Conductor del Hogwarts Express]
+-Precio: $12.00
+-Duración: 7.00
+Atracción
+Nombre: [El Caldero Chorreante]
+-Precio: $8.00
+-Duración: 6.00
+Precio Final: 669.40
+Tiempo Necesario: 79.00
+
+Usuario: Isaias
+Compras: 
+Atracción
+Nombre: [Heladeria de Florean Fortescue]
+-Precio: $88.00
+-Duración: 4.00
+Atracción
+Nombre: [La Cabeza de Puerco]
+-Precio: $47.00
+-Duración: 2.00
+Atracción
+Nombre: [Las Tres Escobas]
+-Precio: $46.00
+-Duración: 5.00
+Atracción
+Nombre: [El Caldero Saltarin]
+-Precio: $45.00
+-Duración: 8.00
+Atracción
+Nombre: [El Caldero Chorreante]
+-Precio: $8.00
+-Duración: 6.00
 Promoción
 -Atracciones incluidas:[Ve a una Varita Elegir a un Mago o una Bruja en Ollivanders]
 -Duración: 8.0 horas
@@ -183,17 +299,13 @@ Nombre: [Conoce al Chofer del Knight Bus]
 -Precio: $34.00
 -Duración: 1.00
 Atracción
-Nombre: [Los Cuentos de Beedle el Bardo]
--Precio: $20.00
--Duración: 4.00
-Atracción
-Nombre: [Celestina Warbeck y las Banshees]
--Precio: $15.00
--Duración: 2.00
+Nombre: [Vuelo del Hipogrifo]
+-Precio: $32.00
+-Duración: 3.00
 Atracción
 Nombre: [Conoce al Conductor del Hogwarts Express]
 -Precio: $12.00
 -Duración: 7.00
-Precio Final: 764.00
-Tiempo Necesario: 94.00
+Precio Final: 576.70
+Tiempo Necesario: 59.00
 

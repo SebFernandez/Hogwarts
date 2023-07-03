@@ -34,9 +34,11 @@ public class Atraccion extends Producto {
         return this.nombre;
     }
 
+    /*
     public String getTipo() {
         return this.tipo;
     }
+    */
 
     public double getPrecio() {
         return this.precio;
@@ -71,8 +73,7 @@ public class Atraccion extends Producto {
 
     @Override
     public boolean contiene(Producto otro) {
-        if (otro instanceof Promocion) {
-            Promocion otraProm = (Promocion) otro;
+        if (otro instanceof Promocion otraProm) {
             return otraProm.getAtracciones().contains(this);
         } else /// si otro es atraccion entonces:
             return this.equals(otro);
