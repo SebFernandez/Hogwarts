@@ -12,7 +12,6 @@ import java.util.List;
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
 
 public class Main {
-    // TODO: mandar para Archivo
     private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
     private static final String RUTA_ARCHIVO_ATRACCIONES = "Archivos/Atracciones.csv";
     private static final String RUTA_ARCHIVO_PROMOCIONES = "Archivos/paquetes_a_ofrecer.csv";
