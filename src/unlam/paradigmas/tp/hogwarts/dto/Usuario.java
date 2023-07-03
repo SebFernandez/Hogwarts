@@ -23,46 +23,25 @@ public class Usuario {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getGusto() {
         return gusto;
-    }
-
-    public void setGusto(String gusto) {
-        this.gusto = gusto;
     }
 
     public float getPresupuesto() {
         return presupuesto;
     }
-
-    public void setPresupuesto(float presupuesto) {
-        this.presupuesto = presupuesto;
-    }
-
     public double getHoras() {
         return horas;
     }
-
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-
     public List<Producto> getCompras() {
         return compras;
     }
-
-    ;
 
     public boolean estaComprado(Producto otro) {
         for (Producto producto : compras) {
             if (producto.contiene(otro))
                 return true;
         }
-
         return false;
     }
 
@@ -87,14 +66,18 @@ public class Usuario {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Usuario usuario = (Usuario) o;
-        return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 && Double.compare(getHoras(), usuario.getHoras()) == 0 && Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
+        return  Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 &&
+                Double.compare(getHoras(), usuario.getHoras()) == 0 &&
+                Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNombre(), getGusto(), getPresupuesto(), getHoras());
+        return Objects.hash(getNombre(), getGusto());
     }
 }

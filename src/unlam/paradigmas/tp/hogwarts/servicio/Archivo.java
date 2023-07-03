@@ -56,24 +56,30 @@ public class Archivo {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datos = line.split(",");
                 String tipoPaquete = datos[0].replace("Pack", "");
-                int lineasLeidas = 0;
+
                 int descuento = Integer.parseInt(datos[2]);
                 List<Atraccion> listaDeAtracciones = new ArrayList<>();
 
+                int lineasLeidas = 0;
                 while (lineasLeidas < Integer.parseInt(datos[3]) && (line = bufferedReader.readLine()) != null) {
-                    listaDeAtracciones.add(atracciones.get(line));
+                    listaDeAtracciones.add(atracciones.get(line)); // TODO: hace falta verificar esto?
                     lineasLeidas++;
                 }
 
-                if (datos[1].equals("Porcentual")) {
-                    var promo = new PromocionPorcentual(listaDeAtracciones, tipoPaquete, descuento);
-                    listaDePromociones.add(promo);
-                } else if (datos[1].equals("Absoluta")) {
-                    var promo = new PromocionAbsoluta(listaDeAtracciones, tipoPaquete, descuento);
-                    listaDePromociones.add(promo);
-                } else if (datos[1].equals("AxB")) {
-                    var promo = new PromocionAxB(listaDeAtracciones, tipoPaquete, descuento);
-                    listaDePromociones.add(promo);
+                switch (datos[1]) {
+                    case "Porcentual" -> {
+                        var promo = new PromocionPorcentual(listaDeAtracciones, tipoPaquete, descuento);
+                        listaDePromociones.add(promo);
+                    }
+                    case "Absoluta" -> {
+                        var promo = new PromocionAbsoluta(listaDeAtracciones, tipoPaquete, descuento);
+                        listaDePromociones.add(promo);
+                    }
+                    case "AxB" -> {
+                        var promo = new PromocionAxB(listaDeAtracciones, tipoPaquete, descuento);
+                        listaDePromociones.add(promo);
+                    }
+                    default -> throw new IllegalStateException("Unexpected value: " + datos[1]);
                 }
             }
 

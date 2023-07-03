@@ -5,7 +5,6 @@ import unlam.paradigmas.tp.hogwarts.dto.Producto;
 import unlam.paradigmas.tp.hogwarts.dto.Promocion;
 import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 import unlam.paradigmas.tp.hogwarts.servicio.Ofertador;
-import unlam.paradigmas.tp.hogwarts.servicio.ProductoIterator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.generarArchivoSalida
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDeAtracciones;
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDePromociones;
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.lecturaDeUsuarios;
+import java.util.LinkedList;
 
 public class Main {
     private static final String RUTA_ARCHIVO_USUARIOS = "Archivos/preferencias_usuarios.csv";
@@ -26,28 +26,26 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
         List<Usuario> resumenCompraDeUsuarios = new ArrayList<>();
         Queue<Usuario> colaDeUsuarios = lecturaDeUsuarios(RUTA_ARCHIVO_USUARIOS);
         Map<String, Atraccion> atracciones = lecturaDeAtracciones(RUTA_ARCHIVO_ATRACCIONES);
         List<Promocion> listaDePromociones = lecturaDePromociones(RUTA_ARCHIVO_PROMOCIONES, atracciones);
+        LinkedList<Producto> productos = Producto.prepararOfertas(listaDePromociones, atracciones);
 
         System.out.println("\t\tBienvenido/a a Hogwarts");
         System.out.println("--------------------------------------------------------------------------------");
 
-        List<Producto> listaDeOfertas = Producto.prepararOfertas(listaDePromociones, atracciones);
+
 
         while (!colaDeUsuarios.isEmpty()) {
             Usuario usuario = colaDeUsuarios.poll();
-            ProductoIterator productoIterator = new ProductoIterator(listaDeOfertas, usuario);
-            Ofertador ofertador = new Ofertador(usuario, productoIterator);
+            Ofertador ofertador = new Ofertador(usuario, productos);
 
             System.out.println("Nombre de Usuario: " + usuario.getNombre());
             System.out.println("gusto:" + usuario.getGusto());
 
             ofertador.ofertaGustoUsuario();
-
-            ofertador.reiniciarIterador();
-
             ofertador.ofertaNoGustoUsuario();
 
             resumenCompraDeUsuarios.add(usuario);

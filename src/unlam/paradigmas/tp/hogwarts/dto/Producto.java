@@ -11,13 +11,12 @@ public abstract class Producto {
     protected boolean esPromocion;
     protected String tipo;
 
-    public static List<Producto> prepararOfertas(List<Promocion> promociones, Map<String, Atraccion> atracciones) {
-        List<Producto> ofertas = new LinkedList<>();
+    public static LinkedList<Producto> prepararOfertas(List<Promocion> promociones, Map<String, Atraccion> atracciones) {
+        LinkedList<Producto> ofertas = new LinkedList<>();
         ofertas.addAll(promociones);
         ofertas.addAll(atracciones.values());
 
-        ProductoComparator comparator = new ProductoComparator();
-        ofertas.sort(comparator);
+        ofertas.sort( new ProductoComparator() );
 
         return ofertas;
     }
