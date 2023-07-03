@@ -28,8 +28,7 @@ public class ProductoComparator implements Comparator<Producto> {
                 return cmpPrecio;
 
             int cmpDuracion = Double.compare(promocion2.getDuracion(), promocion1.getDuracion());
-            if (cmpDuracion != 0)
-                return cmpDuracion;
+            return cmpDuracion;
 
         } else {
             Atraccion atraccion1 = (Atraccion) prod1;
@@ -40,12 +39,9 @@ public class ProductoComparator implements Comparator<Producto> {
                 return cmpPrecio;
 
             int cmpDuracion = Double.compare(atraccion2.getDuracion(), atraccion1.getDuracion());
-            if (cmpDuracion != 0)
-                return cmpDuracion;
+            return cmpDuracion;
 
         }
-
-        return 0;
 
     }
 

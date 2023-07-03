@@ -17,7 +17,7 @@ public abstract class Producto {
         ofertas.addAll(promociones);
         ofertas.addAll(atracciones.values());
 
-        ofertas.sort( new ProductoComparator() );
+        ofertas.sort(new ProductoComparator());
 
         return ofertas;
     }

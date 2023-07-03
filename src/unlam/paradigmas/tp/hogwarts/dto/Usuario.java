@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
-    private String nombre;
-    private String gusto;
+    private final String nombre;
+    private final String gusto;
     private float presupuesto;
     private double horas;
-    private List<Producto> compras;
+    private final List<Producto> compras;
 
     public Usuario(String nombre, String gusto, float presupuesto, int horas) {
         this.nombre = nombre;
@@ -30,9 +30,11 @@ public class Usuario {
     public float getPresupuesto() {
         return presupuesto;
     }
+
     public double getHoras() {
         return horas;
     }
+
     public List<Producto> getCompras() {
         return compras;
     }
@@ -71,7 +73,7 @@ public class Usuario {
         if (o == null || getClass() != o.getClass())
             return false;
         Usuario usuario = (Usuario) o;
-        return  Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 &&
+        return Float.compare(usuario.getPresupuesto(), getPresupuesto()) == 0 &&
                 Double.compare(getHoras(), usuario.getHoras()) == 0 &&
                 Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
     }

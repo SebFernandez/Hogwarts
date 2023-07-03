@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AtraccionTest {
-	@Test
-	public void equalsTest() {
+    @Test
+    public void equalsTest() {
         Atraccion atraccion1 = new Atraccion("Atracción ", "Tipo 1", 15.0, 10, 60.0);
         Atraccion atraccion2 = new Atraccion("Atracción ", "Tipo 1", 15.0, 15, 60.0);
         Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 2", 5.0, 5, 20.0);

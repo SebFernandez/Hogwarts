@@ -6,11 +6,8 @@ import unlam.paradigmas.tp.hogwarts.dto.Usuario;
 import unlam.paradigmas.tp.hogwarts.servicio.Ofertador;
 
 import java.io.IOException;
-
-import java.util.List;
-
-
 import java.util.LinkedList;
+import java.util.List;
 
 import static unlam.paradigmas.tp.hogwarts.servicio.Archivo.*;
 
@@ -29,7 +26,7 @@ public class Main {
             Ofertador ofertador = new Ofertador(productos);
             ofertador.ofertarParaUsuarios(usuarios);
 
-            generarArchivoSalida(RUTA_ARCHIVO_SALIDA,usuarios);
+            generarArchivoSalida(RUTA_ARCHIVO_SALIDA, usuarios);
 
         } catch (IOException e) {
             e.printStackTrace();
