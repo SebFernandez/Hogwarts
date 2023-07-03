@@ -11,6 +11,9 @@ import java.util.List;
 public class ProductoComparatorTest {
 	private ProductoComparator comparator;
 
+
+
+
 	@Test
 	public void CompareAtraccion2MasCaraQueAtraccion1Test() {
 		Atraccion atraccion1 = new Atraccion("Montaña Rusa", "Aventura", Double.parseDouble("25.0"),
