@@ -70,7 +70,7 @@ public class Archivo {
 
                 int lineasLeidas = 0;
                 while (lineasLeidas < Integer.parseInt(datos[3]) && (line = bufferedReader.readLine()) != null) {
-                    listaDeAtracciones.add(atracciones.get(line)); // TODO: hace falta verificar esto?
+                    listaDeAtracciones.add(atracciones.get(line));
                     lineasLeidas++;
                 }
 
