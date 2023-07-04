@@ -7,9 +7,9 @@ import java.util.Objects;
 public class Usuario {
     private final String nombre;
     private final String gusto;
+    private final List<Producto> compras;
     private float presupuesto;
     private double horasDisponibles;
-    private final List<Producto> compras;
 
     public Usuario(String nombre, String gusto, float presupuesto, int horasDisponibles) {
         this.nombre = nombre;
@@ -59,7 +59,6 @@ public class Usuario {
         return false;
     }
 
-    // TODO: metodo no usado segun intelliJ
     @Override
     public String toString() {
         return "Usuario: " + nombre + " | " +
@@ -68,7 +67,6 @@ public class Usuario {
                 "Horas: " + horasDisponibles;
     }
 
-    // TODO: metodo no usado segun intelliJ
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -79,7 +77,6 @@ public class Usuario {
         return Objects.equals(getNombre(), usuario.getNombre()) && Objects.equals(getGusto(), usuario.getGusto());
     }
 
-    // TODO: metodo no usado segun intelliJ
     @Override
     public int hashCode() {
         return Objects.hash(getNombre(), getGusto());

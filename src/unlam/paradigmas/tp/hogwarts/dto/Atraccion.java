@@ -37,7 +37,6 @@ public class Atraccion extends Producto {
         return this.precio;
     }
 
-    // TODO: este metodo solo se usa en Tests, se deja?
     public int getCupo() {
         return this.cupo;
     }
