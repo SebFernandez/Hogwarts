@@ -3,10 +3,10 @@ package unlam.paradigmas.tp.hogwarts.dto;
 import java.util.List;
 
 public class Promocion extends Producto {
-    protected List<Atraccion> atracciones;
+    protected final List<Atraccion> atracciones;
     private double duracion;
     private double precioOriginal;
-    private double precioFinalConDescuento;
+    private double precioConDescuento;
 
     public Promocion(List<Atraccion> atracciones, String tipo) {
         super();
@@ -47,8 +47,8 @@ public class Promocion extends Producto {
         }
     }
 
-    protected void setPrecioFinalConDescuento(double precioFinalConDescuento) {
-        this.precioFinalConDescuento = precioFinalConDescuento;
+    protected void setPrecioConDescuento(double precioConDescuento) {
+        this.precioConDescuento = precioConDescuento;
     }
 
     public List<Atraccion> getAtracciones() {
@@ -66,7 +66,7 @@ public class Promocion extends Producto {
 
     @Override
     public double getPrecio() {
-        return this.precioFinalConDescuento;
+        return this.precioConDescuento;
     }
 
     @Override
@@ -101,6 +101,6 @@ public class Promocion extends Producto {
         String outAtrac = mostrarListaAtracciones();
         return "Promoción\n-Atracciones incluidas:" + outAtrac + "\n-Duración: " + duracion
                 + " horas\n-Precio original: $" + precioOriginal + "\n-Precio con descuento: $"
-                + String.format("%.0f", precioFinalConDescuento);
+                + String.format("%.0f", precioConDescuento);
     }
 }

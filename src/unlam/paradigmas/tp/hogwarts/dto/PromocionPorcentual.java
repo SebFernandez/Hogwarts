@@ -12,6 +12,6 @@ public class PromocionPorcentual extends Promocion {
     private void aplicarDescuento(int valor) {
         double descuento = 1.00 - ((double) valor / 100);
 
-        setPrecioFinalConDescuento(getPrecioOriginal() * descuento);
+        setPrecioConDescuento(getPrecioOriginal() * descuento);
     }
 }

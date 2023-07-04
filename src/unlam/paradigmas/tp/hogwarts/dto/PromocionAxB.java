@@ -15,6 +15,6 @@ public class PromocionAxB extends Promocion {
             precioFinal -= this.atracciones.get(i).getPrecio();
         }
 
-        setPrecioFinalConDescuento(precioFinal);
+        setPrecioConDescuento(precioFinal);
     }
 }

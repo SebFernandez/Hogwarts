@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Ofertador {
-    private final Scanner scanner = new Scanner(System.in);
     private final LinkedList<Producto> productos;
     private Usuario usuario;
 
@@ -17,6 +16,7 @@ public class Ofertador {
     }
 
     private char ofrecerSugerencia() {
+        Scanner scanner = new Scanner(System.in);
         char opc;
         do {
             System.out.println("¿Acepta Sugerencia? Ingrese S o N");
@@ -52,10 +52,9 @@ public class Ofertador {
     public void ofertarParaUsuarios(List<Usuario> usuarios) {
         printBienvenida();
         for (Usuario usuario : usuarios) {
+            setUsuario(usuario);
             System.out.println("Nombre de Usuario: " + usuario.getNombre());
             System.out.println("gusto:" + usuario.getGusto());
-
-            setUsuario(usuario);
             ofertaGustoUsuario();
             ofertaNoGustoUsuario();
         }
