@@ -18,36 +18,31 @@ public class Atraccion extends Producto {
         this.esPromocion = false;
     }
 
+    @Override
     public boolean hayCupo() {
         return this.cupo > 0;
     }
 
-    public void descontarCupo() {
+    @Override
+    protected void descontarCupo() {
         this.cupo--;
-    }
-
-    public boolean esProductoPreferidoPorElUsuario(String tipo) {
-        return this.tipo.equals(tipo);
     }
 
     public String getNombre() {
         return this.nombre;
     }
 
-    /*
-    public String getTipo() {
-        return this.tipo;
-    }
-    */
-
+    @Override
     public double getPrecio() {
         return this.precio;
     }
 
+    // TODO: este metodo solo se usa en Tests, se deja?
     public int getCupo() {
         return this.cupo;
     }
 
+    @Override
     public double getDuracion() {
         return this.duracion;
     }
@@ -73,10 +68,7 @@ public class Atraccion extends Producto {
 
     @Override
     public boolean contiene(Producto otro) {
-        if (otro instanceof Promocion otraProm) {
-            return otraProm.getAtracciones().contains(this);
-        } else /// si otro es atraccion entonces:
-            return this.equals(otro);
+        return otro.esPromocion() ? ((Promocion) otro).getAtracciones().contains(this) : this.equals(otro);
     }
 
     @Override

@@ -2,72 +2,14 @@ package unlam.paradigmas.tp.hogwarts.producto;
 
 import org.junit.Assert;
 import org.junit.Test;
-import unlam.paradigmas.tp.hogwarts.dto.Atraccion;
-import unlam.paradigmas.tp.hogwarts.dto.Producto;
-import unlam.paradigmas.tp.hogwarts.dto.Promocion;
-import unlam.paradigmas.tp.hogwarts.dto.Usuario;
-import unlam.paradigmas.tp.hogwarts.servicio.ProductoComparator;
+import unlam.paradigmas.tp.hogwarts.dto.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
+
+import static unlam.paradigmas.tp.hogwarts.dto.Producto.prepararOfertas;
 
 public class ProductoTest {
 
-    @Test
-    public void CompareListaOrdenada() {
-
-        Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 70.0, 10, 60.0);
-        Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 2", 15.0, 15, 60.0);
-        Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 3", 15.0, 5, 20.0);
-
-        Atraccion atraccionMasCara = new Atraccion("atraccion 4", "Tipo 7", 1000.0, 5, 30.0);
-        Atraccion atraccionSegundaMayorTiempo = new Atraccion("atraccion 6", "Tipo 8", 500.0, 5, 15.0);
-        Atraccion atraccionTerceraMenorTiempo = new Atraccion("atraccion 7", "Tipo 7", 500.0, 5, 10.0);
-
-        List<Atraccion> atraccion = new ArrayList<>();
-        atraccion.add(atraccion1);
-        Promocion promocionMasCara = new Promocion(atraccion, "aventura");
-
-        List<Atraccion> atraccionSegunda = new ArrayList<>();
-        atraccion.add(atraccion2);
-        Promocion promocionSegundoConMayorTiempo = new Promocion(atraccionSegunda, "aventura");
-
-        List<Atraccion> atraccionTercera = new ArrayList<>();
-        atraccion.add(atraccion3);
-        Promocion promocionTerceroConMenorTiempo = new Promocion(atraccionTercera, "aventura");
-
-        List<Promocion> listaDePromociones = new ArrayList<>();
-        listaDePromociones.add(promocionMasCara);
-        listaDePromociones.add(promocionSegundoConMayorTiempo);
-        listaDePromociones.add(promocionTerceroConMenorTiempo);
-
-        List<Producto> atraccionesOrdenados = new LinkedList<>();
-        atraccionesOrdenados.add(atraccionMasCara);
-        atraccionesOrdenados.add(atraccionSegundaMayorTiempo);
-        atraccionesOrdenados.add(atraccionTerceraMenorTiempo);
-
-        List<Producto> listaEsperado = new LinkedList<>();
-        listaEsperado.addAll(listaDePromociones);
-        listaEsperado.addAll(atraccionesOrdenados);
-
-        List<Producto> listaNoOrdenada = new LinkedList<>();
-        listaEsperado.add(promocionTerceroConMenorTiempo);
-        listaEsperado.add(promocionMasCara);
-        listaEsperado.add(atraccionMasCara);
-        listaEsperado.add(atraccionSegundaMayorTiempo);
-        listaEsperado.add(promocionSegundoConMayorTiempo);
-        listaEsperado.add(atraccionTerceraMenorTiempo);
-
-        listaNoOrdenada.sort(new ProductoComparator());
-
-        int i = 0;
-        for (Producto productos : listaNoOrdenada) {
-            Assert.assertEquals(productos, listaEsperado.get(i));
-            i++;
-        }
-    }
 
     @Test
     public void atraccionContieneAtraccionTest() {
@@ -192,5 +134,52 @@ public class ProductoTest {
         accionEsperado = promocion.comprar();
 
         Assert.assertFalse(accionEsperado);
+    }
+
+    @Test
+    public void prepararOfertasTest() {
+
+        Atraccion atraccion1 = new Atraccion("Atracción 1", "Tipo 1", 70.0, 10, 60.0);
+        Atraccion atraccion2 = new Atraccion("Atracción 2", "Tipo 2", 15.0, 15, 60.0);
+        Atraccion atraccion3 = new Atraccion("Atracción 3", "Tipo 3", 15.0, 5, 20.0);
+
+        List<Atraccion> atraccion = new ArrayList<>();
+        atraccion.add(atraccion1);
+        Promocion promocionMasCara = new PromocionAbsoluta(atraccion, "aventura", 0);
+
+        List<Atraccion> atraccionSegunda = new ArrayList<>();
+        atraccionSegunda.add(atraccion2);
+        Promocion promocionSegundoConMayorTiempo = new PromocionAbsoluta(atraccionSegunda, "aventura", 0);
+
+        List<Atraccion> atraccionTercera = new ArrayList<>();
+        atraccionTercera.add(atraccion3);
+        Promocion promocionTerceroConMenorTiempo = new PromocionAbsoluta(atraccionTercera, "aventura", 0);
+
+        List<Promocion> promociones = new ArrayList<>();
+        promociones.add(promocionMasCara);
+        promociones.add(promocionSegundoConMayorTiempo);
+        promociones.add(promocionTerceroConMenorTiempo);
+
+        Atraccion atraccionMasCara = new Atraccion("atraccion 4", "Tipo 7", 1000.0, 5, 30.0);
+        Atraccion atraccionSegundaMayorTiempo = new Atraccion("atraccion 6", "Tipo 8", 500.0, 5, 15.0);
+        Atraccion atraccionTerceraMenorTiempo = new Atraccion("atraccion 7", "Tipo 7", 500.0, 5, 10.0);
+        Map<String, Atraccion> atracciones = new HashMap<>();
+        atracciones.put(atraccionMasCara.getNombre(), atraccionMasCara);
+        atracciones.put(atraccionSegundaMayorTiempo.getNombre(), atraccionSegundaMayorTiempo);
+        atracciones.put(atraccionTerceraMenorTiempo.getNombre(), atraccionTerceraMenorTiempo);
+
+        List<Producto> productosActual = prepararOfertas(promociones, atracciones);
+
+        Queue<Producto> esperados = new LinkedList<>();
+        esperados.offer(promocionMasCara);
+        esperados.offer(promocionSegundoConMayorTiempo);
+        esperados.offer(promocionTerceroConMenorTiempo);
+        esperados.offer(atraccionMasCara);
+        esperados.offer(atraccionSegundaMayorTiempo);
+        esperados.offer(atraccionTerceraMenorTiempo);
+
+        for (Producto productoActual : productosActual) {
+            Assert.assertEquals(esperados.poll(), productoActual);
+        }
     }
 }

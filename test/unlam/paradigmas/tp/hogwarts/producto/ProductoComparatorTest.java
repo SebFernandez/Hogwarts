@@ -12,11 +12,11 @@ public class ProductoComparatorTest {
     public void CompareAtraccion2MasCaraQueAtraccion1Test() {
         Atraccion atraccion1 = new Atraccion("Montaña Rusa", "Aventura", Double.parseDouble("25.0"),
                 Integer.parseInt("10"), Double.parseDouble("2.5"));
-        Atraccion atraccion2 = new Atraccion("Pileta", "Aventura", Double.parseDouble("0.0"), Integer.parseInt("15"),
+        Atraccion atraccion2 = new Atraccion("Pileta", "Aventura", Double.parseDouble("30.0"), Integer.parseInt("15"),
                 Double.parseDouble("3.2"));
 
         comparator = new ProductoComparator();
-        Assert.assertTrue(comparator.compare(atraccion1, atraccion2) < 0);
+        Assert.assertTrue(comparator.compare(atraccion1, atraccion2) > 0);
     }
 
     @Test

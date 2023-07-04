@@ -11,12 +11,13 @@ public class Promocion extends Producto {
     public Promocion(List<Atraccion> atracciones, String tipo) {
         super();
         this.atracciones = atracciones;
-        calcularDuracionFinal();
-        calcularPrecioOriginal();
         this.esPromocion = true;
         this.tipo = tipo;
+        calcularDuracionTotal();
+        calcularPrecioOriginal();
     }
 
+    @Override
     public boolean hayCupo() {
         for (Atraccion atraccion : atracciones) {
             if (!atraccion.hayCupo())
@@ -25,18 +26,11 @@ public class Promocion extends Producto {
         return true;
     }
 
-    public void descontarCupo() {
+    @Override
+    protected void descontarCupo() {
         for (Atraccion atraccion : atracciones) {
             atraccion.descontarCupo();
         }
-    }
-
-    public boolean esProductoPreferidoPorElUsuario(String tipo) {
-        for (Atraccion atraccion : atracciones) {
-            if (atraccion.esProductoPreferidoPorElUsuario(tipo))
-                return true;
-        }
-        return false;
     }
 
     private void calcularPrecioOriginal() {
@@ -46,7 +40,7 @@ public class Promocion extends Producto {
         }
     }
 
-    private void calcularDuracionFinal() {
+    private void calcularDuracionTotal() {
         this.duracion = 0;
         for (Atraccion atraccion : atracciones) {
             duracion += atraccion.getDuracion();
@@ -61,6 +55,7 @@ public class Promocion extends Producto {
         return this.atracciones;
     }
 
+    @Override
     public double getDuracion() {
         return this.duracion;
     }
@@ -69,21 +64,22 @@ public class Promocion extends Producto {
         return this.precioOriginal;
     }
 
+    @Override
     public double getPrecio() {
         return this.precioFinalConDescuento;
     }
 
     @Override
     public boolean contiene(Producto otro) {
-        if (otro instanceof Promocion otraPromocion) {
+        if (otro.esPromocion()) {
 
-            for (Atraccion atraccion : atracciones) { // pregunto si la otra promocion contiene alguna de mis atracciones
-                if (otraPromocion.contiene(atraccion))
+            for (Atraccion atraccion : atracciones) {
+                if (otro.contiene(atraccion))
                     return true;
             }
             return false;
         }
-        // otro es Atraccion entonces pregunto si esta en mi lista de atracciones
+
         return atracciones.contains(otro);
     }
 

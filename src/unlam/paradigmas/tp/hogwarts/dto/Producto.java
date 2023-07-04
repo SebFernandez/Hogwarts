@@ -23,9 +23,7 @@ public abstract class Producto {
 
     public abstract boolean hayCupo();
 
-    public abstract void descontarCupo();
-
-    public abstract boolean esProductoPreferidoPorElUsuario(String preferencia);
+    protected abstract void descontarCupo();
 
     public abstract double getPrecio();
 
@@ -51,7 +49,7 @@ public abstract class Producto {
 
     public boolean esOfertable(Usuario usuario) {
         return (usuario.getPresupuesto() >= this.getPrecio() &&
-                usuario.getHoras() >= this.getDuracion() &&
+                usuario.getHorasDisponibles() >= this.getDuracion() &&
                 !usuario.estaComprado(this) &&
                 this.hayCupo());
     }
